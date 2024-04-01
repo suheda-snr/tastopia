@@ -22,13 +22,15 @@
     justify-content: center;
   }
   .logo {
-    width: 130px; /* Adjust the max-width of the logo */
-    margin-left: 30px;
-    margin-top: 15px;
+    width: 120px; /* Adjust the max-width of the logo */
+    margin-left: 5px; 
+  }
+  .container-fluid {
+    margin-top: 10px;
   }
   .search-bar {
-    width: 6500px; /* Adjust width as needed */
-    max-width: 650px; /* Set maximum width for input */
+    width: 650px;
+    
   }
   .form-inline {
     display: flex;
@@ -96,7 +98,7 @@
     margin-right: 30px; /* Adjust this value according to your preference */
 }
 .col-auto {
-  margin-right: 30px; /* Adjust this value according to your preference */
+  margin-right: 5px; /* Adjust this value according to your preference */
 }
 .container-fluid {
   margin-top: 15px;
@@ -142,33 +144,26 @@
 
 /* Media query for Home Page*/
 
-@media (max-width: 576px) {
-  .logo-button {
-    margin-right: auto;
-  }
-  .search-bar {
-    width: 40%;
-  }
-  .login-button {
-    display: none; /* Hide login button */
-  }
-}
-
 
 @media (max-width: 576px) {
   .search-bar {
-    width: 55%; /* Adjust width for smaller screens */
+    width: 60%; /* Adjust width for smaller screens */
     height: 65%;
     margin-top: 10px;
+    margin-left: 10px;
   }
   .logo {
-    width: 100px;
+    width: 90px;
   }
+  .search-bar::placeholder {
+    font-size: 15px !important; /* Adjust the size as needed */
+}
 }
 
 @media (min-width: 576px) and (max-width: 750px) {
   .search-bar {
     width: 70%;
+    margin-left: 15px;
   }
   .logo {
     width: 110px;
@@ -177,28 +172,37 @@
 
 @media (min-width: 750px) and (max-width: 800px) {
   .search-bar {
-    width: 90%;
+    width: 95%;
   }
   .logo {
     width: 120px;
+}
+.navbar-nav .nav-item {
+  margin-right: 0px; /* Adjust this value according to your preference */
 }
 }
 
 @media (min-width: 800px) and (max-width: 1000px){
   .search-bar {
-    width: 300px; /* Set default width to 100% */
+    width: 350px; /* Set default width to 100% */
   }
   .logo {
     width: 125px;
+}
+.navbar-nav .nav-item {
+  margin-right: 10px; /* Adjust this value according to your preference */
 }
 }
 
 @media (min-width: 1000px) and (max-width: 1200px){
   .search-bar {
-    width: 400px; /* Set default width to 100% */
+    width: 500px; /* Set default width to 100% */
   }
   .logo {
     width: 130px;
+}
+.navbar-nav .nav-item {
+  margin-right: 15px; /* Adjust this value according to your preference */
 }
 }
 
