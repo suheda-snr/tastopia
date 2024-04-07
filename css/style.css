@@ -206,50 +206,55 @@
 }
 }
 
-
 /* HOME PAGE THIRD ROW*/
-.container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .text {
-    flex: 1;
-    padding: 110px;
-  }
-  
-  .image {
-    flex: 1;
-    text-align: right;
-  }
-  
-  img {
-    max-width: 100%;
-    height: auto;
-    max-height: 900px; /* Limiting the height of the image */
-  }
-  #maintext {
-    font-size: 35px;
-  }
-  .container{
-    margin-top: 40px;
-  }
-  .col-7{
-    margin-top: 160px;
-  }
-  .btn-primary{
-    color: white;
-    background-color: #EA9239;
-    border-color: #EA9239;
-  }
-  .btn-primary:hover{
-    color: white;
-    background-color: black;
-    border-color: #EA9239;
-  }
-  
+
+/* add header to the top of the slideshow */
+* {
+  box-sizing: border-box;
+}
+
+header {
+  text-align: left;
+  color: black;
+  padding: 60px 60px;
+}
+
+.image-slideshow {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  text-align: center; /* Center the image horizontally */
+}
+
+.slideshow-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mySlides {
+  display: none;
+}
+
+img {
+  width: 70%;
+  display: block; /* Ensure the image is displayed as a block element */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 3s;
+}
+
+@keyframes fade {
+  from { opacity: .7; }
+  to { opacity: 1; }
+}
+
+#maintext {
+  font-size: 23px;
+  margin-top: 40px;
+}
 
 /* LOGIN PAGE */
 
