@@ -3,21 +3,6 @@
   }
 
 /* Custom CSS for the first container of Home Page*/
-
-.error-message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: red; /* Adjust color as needed */
-  font-size: 12px; /* Adjust font size as needed */
-  display: none; /* Initially hide the error message */
-}
-
-/* Show error message when input is invalid */
-.error {
-  display: block;
-}
  .navbar-expand-custom {
     justify-content: center;
   }
@@ -136,10 +121,9 @@
 }
 .error-box {
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--logo-orange);
 }
-
 
 
 /* Media query for Home Page*/
@@ -318,6 +302,29 @@ height: 100%;
     box-shadow: 0 0 0 0.15rem rgba(255, 165, 0, 0.25) !important;
 }
 
+
+/* Search results page and Recipe cards*/
+
+#search-results{
+  margin-left: 170px;
+}
+
+.card{
+  width: 250px;
+  margin-top: 25px;
+  box-sizing: border-box;
+  border-color: var(--logo-orange);
+}
+
+.card-title {
+  color: var(--logo-orange);
+  font-size: 1rem;
+}
+
+#displayText{
+  margin-top: 40px;
+  margin-bottom: 35px;
+}
 
 
 
