@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tastopia HP</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css"> <!-- Custom CSS -->
+  <style>
+    .img-class{
+  width: 500px;
+  margin-top: 30px;
+  margin-bottom: 0;
+ } 
+ h4{
+    margin-top: 25px;
+ }
+  </style>
+</head>
+<body>
+  
+  <div class="container-fluid">
+    <!-- First row for logo, search bar, and login -->
+    <div class="row align-items-center">
+        <div class="col-auto">
+            <a href="index.html" class="logo-button">
+                <img src="./images/logo.png" alt="Logo" class="logo">
+            </a>
+        </div>
+        
+      <div class="col">
+        <form class="form-inline my-2 my-lg-0">
+          <div class="d-flex">
+            <input class="form-control mr-sm-2 search-bar" type="search" placeholder="Search for..." aria-label="Search" >
+            <button class="btn btn-search my-2 my-sm-0" type="submit">
+              <i class="bi bi-search-heart"></i> <!-- Bootstrap icon for search -->
+            </button>
+          </div>
+        </form>
+          <!-- Error box for displaying error message -->
+      <div class="row">
+        <div class="col">
+            <div class="error-box"></div>
+        </div>
+    </div>
+      </div>
+      <div class="col-auto">
+        <div class="d-flex align-items-center">
+          <!-- Button for small screens -->
+          <a href="login.html" class="btn  btn-orange d-block d-sm-none btn-xs">
+            <i class="bi bi-person-fill me-1"></i> 
+          </a>          
+          <!-- Login and Signup for larger screens -->
+          <div id="login" class="d-none d-sm-block">
+            <a href="login.html" class="login-button login">Log in </a>
+          </div>
+          <div id="signup" class="ms-2 d-none d-sm-block">
+            <a href="signup.html" class="login-button signup">Sign up</a>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+      
+    
+    <!-- Second Row -->
+    <div class="row">
+      <div class="col">
+        <nav class="navbar navbar-expand-md navbar-light bg-light w-100 navbar-expand-custom">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"><b>HOME</b></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <b>MY TASTOPIA</b>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Share a new recipe</a></li>
+                  <li><a class="dropdown-item" href="#">My recipes</a></li>
+                  <li><a class="dropdown-item" href="#">Saved recipes</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <b>RECIPES</b>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Starter</a></li>
+                  <li><a class="dropdown-item" href="#">Main Course</a></li>
+                  <li><a class="dropdown-item" href="#">Dessert</a></li>
+                  <li><a class="dropdown-item" href="#">Pastry</a></li>
+                  <li><a class="dropdown-item" href="#">Beverage</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="aboutUs.html"><b>ABOUT US</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html"><b>CONTACT</b></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid" id="aboutUsText">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-4">
+        <img class = 'img-class'
+        src="./images/aboutUs.png" alt="About Us image">
+      <p>
+      <h4 style="color:#EA9239">Welcome to Tastopia: Where Flavor Knows No Bounds </h4>
+      Come along with us to Tastopia, the utopia of various tastes. Established by a  
+      passionate team from around the world, Tastopia is your gateway to a world of 
+      flavors, recipes, and gastronomic inspiration.
+      <h4 style="color:#EA9239"> About Tastopia</h4>
+      At Tastopia, we believe that food is more than just sustenance; it's an exploration 
+       of cultures, traditions, with non-limited amount of creativity seasoning. Whether
+        you're a pro chef or an aspiring home cook, Tastopia is your trusted companion on 
+        your culinary journey.
+      <h4 style="color:#EA9239">Our Mission</h4>
+      Driven by our passion for food and community, our mission at Tastopia is to 
+      inspire, educate, and connect food enthusiasts from around the globe. We strive 
+      to provide a platform where everyone can share their love for food and discover 
+      new flavors together.
+      <h4 style="color:#EA9239">History</h4>
+      Tastopia was born out of a shared love for food and a desire to create a space 
+      where people could come together to celebrate culinary diversity. Founded in 
+      spring 2024 by a group of first-year IT students at OAMK as part of 
+      their web development project, Tastopia has grown from a humble idea to a 
+      thriving community of food enthusiasts from all walks of life.
+      <h4 style="color:#EA9239">What We Offer</h4>
+      Inspiring Recipes: Explore a diverse collection of recipes curated to satisfy every 
+       palate and occasion. From comforting classics to innovative culinary creations, 
+        Tastopia has something for everyone. 
+        Engaging Content: Stay updated with the latest food trends, cooking tips, and  
+      culinary adventures through our informative articles, videos, and blog posts. 
+       Interactive Community: Join our vibrant community of food lovers, share your 
+       favorite recipes, exchange cooking ideas, and connect with like-minded  
+       individuals who share your passion for all things food.
+      <h4 style="color:#EA9239">Join the Tastopia Family</h4>
+      Whether you're here to discover new recipes, share your culinary creations, or  
+      simply connect with fellow food enthusiasts, we invite you to join the Tastopia  
+      family and embark on a flavorful journey of discovery and delight.
+      
+      </p>
+    </div>
+    </div>
+  </div>
+  
+
+ 
+  
+  <!-- Bootstrap Scripts (jQuery and Popper.js) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./js/index.js" ></script> 
+  <script type="module" src="./js/search.js" ></script>
+</body>
+</html>
