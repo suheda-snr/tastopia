@@ -13,7 +13,7 @@ class Recipe {
     this.#title = title
     this.#description = description
     this.#ingredients = ingredients
-    this.#instructions = iinstructions
+    this.#instructions = instructions
     this.#postdate = postdate
     this.#category = category
     this.#picture = picture

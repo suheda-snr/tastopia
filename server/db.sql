@@ -12,7 +12,7 @@ CREATE TABLE Recipes (
     RecipeID SERIAL PRIMARY KEY,
     UserID INT NOT NULL,
     Title VARCHAR(255) NOT NULL,
-    Description TEXT NOT NULL,
+    Description TEXT NOT NULL ,
     Ingredients TEXT NOT NULL,
     Instructions TEXT NOT NULL,
     PostDate TIMESTAMP NOT NULL,
