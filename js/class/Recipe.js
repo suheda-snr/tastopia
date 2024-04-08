@@ -8,7 +8,7 @@ class Recipe {
   #category
   #picture
 
-  constructor(recipeid, title, description, ingredients, iinstructions,postdate,category, picture) {
+  constructor(recipeid, title, description, ingredients, instructions,postdate,category, picture) {
     this.#recipeid = recipeid
     this.#title = title
     this.#description = description
