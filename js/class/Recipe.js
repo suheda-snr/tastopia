@@ -1,17 +1,19 @@
 class Recipe {
   #recipeid
   #title
+  #description
   #ingredients
-  #iinstructions
+  #instructions
   #postdate
   #category
   #picture
 
-  constructor(recipeid, title, ingredients, iinstructions,postdate,category, picture) {
+  constructor(recipeid, title, description, ingredients, iinstructions,postdate,category, picture) {
     this.#recipeid = recipeid
     this.#title = title
+    this.#description = description
     this.#ingredients = ingredients
-    this.#iinstructions = iinstructions
+    this.#instructions = iinstructions
     this.#postdate = postdate
     this.#category = category
     this.#picture = picture
@@ -24,13 +26,17 @@ class Recipe {
     get title() {
     return this.#title
     }
+
+    get description() {
+    return this.#description
+    }
     
     get ingredients() {
     return this.#ingredients
     }
 
     get instructions() {
-    return this.#iinstructions
+    return this.#instructions
     }
     
     get date() {
