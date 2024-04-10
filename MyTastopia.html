@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tastopia HP</title>
-  <!-- Bootstrap CSS -->
+    <title>My Tastopia</title>
+      <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css"> <!-- Custom CSS -->
 </head>
 <body>
-  
+      
   <div class="container-fluid">
     <!-- First row for logo, search bar, and login -->
     <div class="row align-items-center">
@@ -104,46 +104,55 @@
     </div>
   </div>
 
-  <!-- Third Row content-->
-    <div id="slideshow-container" class="slideshow-container"> <!-- Slideshow container-->
-      <div class="mySlides fade">
-        <img src="./images/Slideshow/Slideshow (1).jpg" alt="Korean Ttukbaegi">
-        <div class="carousel-caption">
-          <p>“Indulge in a flavourful towards wellness with Tastopia.”</p>
-        </div>
-      </div>
+      <div id= Orange class="Orange">
+    <img src="./images/orange.jpg" alt="Orange">
+  </div>
   
-      <div class="mySlides fade">
-        <img src="./images/Slideshow/Slideshow (2).jpg" alt="Omelette">
-        <div class="carousel-caption">
-          <p>“Indulge in a flavourful towards wellness with Tastopia.”</p>
-        </div>
-      </div>
-  
-      <div class="mySlides fade">
-        <img src="./images/Slideshow/Slideshow (3).jpg" alt="Orange cake">
-        <div class="carousel-caption">
-          <p>“Indulge in a flavourful towards wellness with Tastopia.”</p>
-        </div>
-      </div>
-  
-      <div class="mySlides fade">
-        <img src="./images/Slideshow/Slideshow (4).jpg" alt="Peach drink">
-        <div class="carousel-caption">
-          <p>“Indulge in a flavourful towards wellness with Tastopia.”</p>
-        </div>
-      </div>
-  
-      <div class="mySlides fade">
-        <img src="./images/Slideshow/Slideshow (5).jpg" alt="Pumpkin soup">
-        <div class="carousel-caption">
-          <p>“Indulge in a flavourful towards wellness with Tastopia.”</p>
-        </div>
-      </div>
-    </div>
-  
-    <script src="./js/index.js"></script>
+  <script src="./js/index.js"></script>
   </html>
+  <h2 id="share-new-recipe">Share a new recipe</h2>
+    <!-- Content for Share a new recipe -->
+    <form id="recipeForm" action="submit_recipe.php" method="post">
+      <label for="category">Recipe Category:</label><br>
+      <button type="button" class="category-btn" value="starter">Starter</button>
+      <button type="button" class="category-btn" value="main_course">Main Course</button>
+      <button type="button" class="category-btn" value="dessert">Dessert</button>
+      <button type="button" class="category-btn" value="pastry">Pastry</button>
+      <button type="button" class="category-btn" value="beverage">Beverage</button><br>
+  
+      <label for="time">Estimated Time (minutes):</label><br>
+      <input type="number" id="time" name="time" required><br>
+  
+      <label for="about">About the Food:</label><br>
+      <textarea id="about" name="about" required></textarea><br>
+
+      <label for="input-group mb-3">Image of the food:</label><br>
+      <div class="input-group">
+        <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+        <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Attach image</button>
+      </div>
+  
+      <label for="ingredients">Ingredients:</label><br>
+      <textarea id="ingredients" name="ingredients" required></textarea><br>
+  
+      <label for="instructions">Instructions:</label><br>
+      <textarea id="instructions" name="instructions" required></textarea><br>
+  
+      <button type="submit" class="submit">Submit Recipe</button>
+  </form>
+  
+  <h2 id="my-recipes">My recipes</h2>
+  
+  <!-- Content for My recipes -->
+  <ul id="recipe-list" class="recipe-list">
+    <!-- Recipes will be dynamically added here -->
+  </ul>
+
+
+  <h2 id="saved-recipes">Saved recipes</h2>
+  <!-- Content for Saved recipes -->
+
+
   <!-- Bootstrap Scripts (jQuery and Popper.js) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
