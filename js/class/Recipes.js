@@ -1,12 +1,13 @@
 import { BACKEND_URL } from '../config.js'
 import { Recipe } from './Recipe.js'
+const RECIPES_ROUTE = '/recipes'; // Define your new route
 
 class Recipes {
   #recipes = []
   
   getRecipes = () => {
     return new Promise(async(resolve,reject)=> {
-      fetch(BACKEND_URL)
+      fetch(BACKEND_URL+ RECIPES_ROUTE)
       .then(response => response.json())
       .then(json => {
         this.#readJson(json)

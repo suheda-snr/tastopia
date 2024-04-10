@@ -1,2 +1,2 @@
 ### Get recipes 
-GET http://localhost:3001
+GET http://localhost:3001/recipes
