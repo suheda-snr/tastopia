@@ -9,6 +9,7 @@
   .logo {
     width: 120px; /* Adjust the max-width of the logo */
     margin-left: 5px; 
+    margin-top: 0%; /* Adjust the margin as needed */
   }
   .container-fluid {
     margin-top: 10px;
@@ -192,37 +193,26 @@
 
 /* HOME PAGE THIRD ROW*/
 
-/* add header to the top of the slideshow */
-* {
-  box-sizing: border-box;
-}
-
-header {
-  text-align: left;
-  color: black;
-  padding: 60px 60px;
-}
-
+/* Styling for the slideshow container */
 .image-slideshow {
   max-width: 1000px;
   position: relative;
   margin: auto;
-  text-align: center; /* Center the image horizontally */
-}
-
-.slideshow-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-top: 40px; /* Adjust margin-top as needed */
 }
 
+/* Styling the carousel images */
 .mySlides {
   display: none;
 }
 
+
 img {
-  width: 70%;
-  display: block; /* Ensure the image is displayed as a block element */
-  margin: 0 auto; /* Center the image horizontally */
+  width: 30%;
+  display: block;
+  margin: auto;
+  margin-top: 40px;
 }
 
 .fade {
@@ -238,6 +228,24 @@ img {
 #maintext {
   font-size: 23px;
   margin-top: 40px;
+}
+
+/* Styling for the carousel caption */
+.carousel-caption {
+  color: white; /* Set text color for carousel caption */
+  font-size: 30px; /* Set font size for carousel caption */
+  background-color: rgba(0, 0, 0, 0.228);
+  border-radius: 8px; /* Adjust border radius */
+  padding: 10px; /* Adjust padding */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Styling for the carousel caption text */
+.carousel-caption p {
+  font-size: 20px; /* Set font size for carousel caption text */
+  /* Add margin as needed */
+  margin-bottom: 0%;
 }
 
 /* LOGIN PAGE */
@@ -310,9 +318,6 @@ height: 100%;
 
 /* Search results page and Recipe cards*/
 
-#search-results{
-  margin-left: 170px;
-}
 
 .card{
   width: 250px;
@@ -331,5 +336,174 @@ height: 100%;
   margin-bottom: 35px;
 }
 
+/* Custom styles for MyTastopia page */
+
+/* Styling for the orange image */
+.Orange image{
+  width: 100%;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 50px;
+}
+
+img {
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
+/* Styling for the headings */
+#share-new-recipe,
+#my-recipes,
+#saved-recipes {
+  font-size: 36px;
+  color: black;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 50px;
+}
+
+/* My Tastopia page */
+.category-btn {
+  background-color: var(--logo-orange);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0px 10px 50px;
+  cursor: pointer;
+}
+
+.category-btn:hover {
+  background-color: white;
+  border: 1px solid var(--logo-orange);
+  color: var(--logo-orange);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0px 10px 50px;
+  cursor: pointer;
+}
+
+.category-btn:active {
+  background-color: white;
+  border: 1px solid var(--logo-orange);
+  color: var(--logo-orange);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0px 10px 50px;
+  cursor: pointer;
+}
+
+/* Style for labels */
+label {
+  font-weight: bold;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  margin-left: 50px;
+  display: block;
+}
+
+/* Style for input fields */
+input[type="number"],
+textarea {
+  width: 60%;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+}
+
+/* Style for input group */
+.input-group {
+  margin-bottom: 10px;
+  margin-left: 50px;
+  width: 60%;
+  height: auto;
+}
+
+/* Style for image upload button */
+.btn btn-outline-secondary {
+  background-color: var(--logo-orange);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0px 10px 50px;
+  cursor: pointer;
+}
+
+/* Style for the submit button */
+.submit {
+  background-color: var(--logo-orange);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0px 10px 50px;
+  cursor: pointer;
+}
+
+/* Styling for the recipe list */
+.recipe-list {
+  list-style: none;
+  padding: 0;
+}
+
+.recipe-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.recipe-name {
+  flex-grow: 1;
+}
+
+.recipe-actions button {
+  margin-left: 10px;
+}
+
+
+/* Styling for the saved recipe list */
+#saved-recipe-list {
+  list-style: none;
+  padding: 0;
+}
+
+.saved-recipe-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.saved-recipe-name {
+  flex-grow: 1;
+}

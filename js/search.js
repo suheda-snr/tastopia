@@ -47,19 +47,26 @@ function filterRecipes() {
 
     recipesInstance.getRecipes()
         .then(recipes => {
+            // Sort recipes alphabetically by title
+            recipes.sort((a, b) => a.title.localeCompare(b.title));
+
             searchResultsContainer.innerHTML = '';
             let count = 0; // Initialize count for results
             recipes.forEach(recipe => {
-                if (recipe.title.toLowerCase().includes(input.toLowerCase())) {
+                // Check if the input matches the recipe title or any of the ingredients
+                if (recipe.title.toLowerCase().includes(input.toLowerCase()) || recipe.ingredients.toLowerCase().includes(input.toLowerCase())) {
                     const card = document.createElement('div');
                     card.classList.add('col');
                     card.innerHTML = `
+                    <a href="searchresults.js" class="card-link">
+                    <div class="row justify-content-center" id="cardRow1">
                         <div class="card h-100">
                             <img src="${recipe.image}" class="card-img-top" alt="${recipe.title}">
                             <div class="card-body">
-                                <h5 class="card-title">${recipe.title}</h5>
+                                <h5 class="card-title no-underline">${recipe.title}</h5>
                             </div>
                         </div>
+                    </div>
                     `;
                     searchResultsContainer.appendChild(card);
                     count++; // Increment count for each matching result
