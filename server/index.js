@@ -8,7 +8,7 @@ const { recipeRouter } = require('./routes/recipe.js')
 
 const path = require('path');
 const { sequelize } = require('./helpers/database');
-
+//const { isLoggedIn } = require('../middleware');
 const session = require('express-session');
 const flash = require('connect-flash');
 //const ExpressError = require('./utils/ExpressError');
@@ -18,7 +18,6 @@ const LocalStrategy = require('passport-local').Strategy;
 require('../passportConfig')(passport);
 const User = require('../models/models');
 const userRoutes = require('../routes/users');
-//const bodyParser = require('body-parser');
 
 const { Session } = require('../models/models');
 const pgSession = require('connect-pg-simple')(session);
@@ -42,7 +41,7 @@ const port = process.env.PORT
 const app = express()
 app.use(cors())
 app.use(express.json())
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, '..')));
 
 const sessionConfig = {
     name: 'session',
@@ -66,9 +65,41 @@ const sessionConfig = {
   
   app.use(session(sessionConfig));
   app.use(flash());
-app.use(express.urlencoded({extended: false}))
-
+app.use(express.urlencoded({extended: true}))
+app.use(passport.initialize());
+app.use(passport.session());
 app.use('/',recipeRouter)
+app.use('/', userRoutes);
+
+// CORS configuration
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || ["http://127.0.0.1:5500"].indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Reflect the request's credentials mode
+};
+
+app.use(cors(corsOptions));
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect('/login'); // Or respond with an appropriate error
+}
+app.get('/profile', isLoggedIn, (req, res) => {
+  res.send('This is a protected profile page.');
+});
+
+app.get('/api/check-login', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.json({ isLoggedIn: true });
+  } else {
+    res.json({ isLoggedIn: false });
+  }
+});
 
 app.listen(port,() => {
     console.log(`Server is listening on port ${port}`)

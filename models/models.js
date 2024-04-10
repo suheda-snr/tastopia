@@ -6,11 +6,13 @@ const User = sequelize.define('User', {
   UserID: {
     type: DataTypes.INTEGER,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
+    field: 'userid'
 },
 Username: { 
     type: DataTypes.STRING(255),
-    allowNull: false
+    allowNull: false,
+    field: 'username'
 },
 Email: { 
     type: DataTypes.STRING(255),
@@ -18,24 +20,27 @@ Email: {
     unique: true,
     validate: {
         isEmail: true
-    }
+    },
+    field: 'email'
+
 },
 Passwordhash: { 
     type: DataTypes.STRING(255),
-    allowNull: false
+    allowNull: false,
+    field: 'passwordhash'
 },
 CreateDate: { 
     type: DataTypes.DATE, // TIMESTAMP in PostgreSQL maps to DATE in Sequelize
-    allowNull: false
+    allowNull: false,
+    field: 'createdate'
 }
 }, {
-  tableName: 'Users',
+  tableName: 'users',
   timestamps: false,
   hooks: {
       beforeCreate: async (user, options) => {
-        if (user.password) {
-          const hashedPassword = await bcrypt.hash(user.password, 12);
-          user.Passwordhash = hashedPassword;
+        if (user.Passwordhash) {
+          user.Passwordhash = await bcrypt.hash(user.Passwordhash, 12);
         }
       }
   }

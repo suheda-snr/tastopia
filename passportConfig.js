@@ -14,7 +14,7 @@ module.exports = function (passport) {
             return done(null, false, { message: 'Incorrect Email.' });
           }
 
-          const isPasswordValid = await bcrypt.compare(password, user.password);
+          const isPasswordValid = await bcrypt.compare(password, user.Passwordhash);
 
           if (!isPasswordValid) {
             return done(null, false, { message: 'Incorrect password.' });
@@ -29,7 +29,8 @@ module.exports = function (passport) {
   );
 
   passport.serializeUser((user, done) => {
-    done(null, user.id);
+    console.log(user);
+    done(null, user.UserID);
   });
 
   passport.deserializeUser(async (id, done) => {
