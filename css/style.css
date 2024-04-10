@@ -126,6 +126,15 @@
   color: var(--logo-orange);
 }
 
+/* CSS to explicitly show elements */
+.show {
+  display: block !important;
+}
+
+/* CSS to explicitly hide elements */
+.hide {
+  display: none !important;
+}
 
 /* Media query for Home Page*/
 

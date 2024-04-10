@@ -8,7 +8,7 @@ const { recipeRouter } = require('./routes/recipe.js')
 
 const path = require('path');
 const { sequelize } = require('./helpers/database');
-//const { isLoggedIn } = require('../middleware');
+const { isLoggedIn } = require('../middleware');
 const session = require('express-session');
 const flash = require('connect-flash');
 //const ExpressError = require('./utils/ExpressError');
@@ -85,10 +85,10 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-function isLoggedIn(req, res, next) {
+/*function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect('/login'); // Or respond with an appropriate error
-}
+}*/
 app.get('/profile', isLoggedIn, (req, res) => {
   res.send('This is a protected profile page.');
 });
