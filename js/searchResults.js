@@ -1,5 +1,8 @@
 import { BACKEND_URL } from "./config.js";
 import { Recipes } from './class/Recipes.js';
+// Import the createCard function from index.js
+import { searchResultsCard } from './renderedElements.js';
+
 
 const searchInput = document.querySelector('.search-bar');
 const searchButton = document.querySelector('.btn-search');
@@ -55,19 +58,8 @@ function filterRecipes() {
             recipes.forEach(recipe => {
                 // Check if the input matches the recipe title or any of the ingredients
                 if (recipe.title.toLowerCase().includes(input.toLowerCase()) || recipe.ingredients.toLowerCase().includes(input.toLowerCase())) {
-                    const card = document.createElement('div');
-                    card.classList.add('col');
-                    card.innerHTML = `
-                    <a href="searchresults.js" class="card-link">
-                    <div class="row justify-content-center" id="cardRow1">
-                        <div class="card h-100">
-                            <img src="${recipe.image}" class="card-img-top" alt="${recipe.title}">
-                            <div class="card-body">
-                                <h5 class="card-title no-underline">${recipe.title}</h5>
-                            </div>
-                        </div>
-                    </div>
-                    `;
+                    // Create the card element using the imported function
+                    const card = searchResultsCard(recipe);
                     searchResultsContainer.appendChild(card);
                     count++; // Increment count for each matching result
                 }

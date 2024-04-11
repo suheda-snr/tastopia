@@ -7,8 +7,9 @@ class Recipe {
   #postdate
   #category
   #picture
+  #username
 
-  constructor(recipeid, title, description, ingredients, instructions,postdate,category, picture) {
+  constructor(recipeid, title, description, ingredients, instructions,postdate,category, picture, username) {
     this.#recipeid = recipeid
     this.#title = title
     this.#description = description
@@ -17,6 +18,7 @@ class Recipe {
     this.#postdate = postdate
     this.#category = category
     this.#picture = picture
+    this.#username = username
   }
 
   get id() {
@@ -51,6 +53,9 @@ class Recipe {
     return this.#picture
     }
 
+    get username() {
+    return this.#username
+    }
 
   get formattedDate() {
     const date_from_database = new Date(this.#postdate) 

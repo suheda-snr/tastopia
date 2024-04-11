@@ -6,8 +6,7 @@ const recipeRouter= express.Router()
 recipeRouter.get('/recipes',async (req,res) => {
   try {
     const sql = `
-    SELECT *
-    FROM recipes
+    select  recipes.recipeid, recipes.title, recipes.description, recipes.ingredients,recipes.instructions, recipes.postdate, recipes.category, recipes.picture, users.username from recipes left join users on recipes.userid=users.userid;
 `;
     const result = await query(sql)
     const rows = result.rows ? result.rows : []
