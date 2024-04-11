@@ -39,10 +39,29 @@ module.exports.renderRegister = (req, res) => {
 	res.sendFile(path.join(__dirname, '../', 'signup.html'));
   };
 
-module.exports.login = (req,res) => {
+  module.exports.login = (req, res, next) => {
+	passport.authenticate('local', (err, user, info) => {
+	  if (err) {
+		return res.status(500).json({ success: false, message: err.message });
+	  }
+	  if (!user) {
+		// No user found, or password incorrect
+		return res.status(401).json({ success: false, message: info.message });
+	  }
+	  req.logIn(user, (err) => {
+		if (err) {
+		  return res.status(500).json({ success: false, message: err.message });
+		}
+		// Login successful
+		return res.json({ success: true, message: "Login Successful" });
+	  });
+	})(req, res, next);
+  };
+   
+/*module.exports.login = (req,res) => {
   req.flash("success", "Login Successful");
   res.redirect('/')
-}
+}*/
 
 module.exports.renderLogin = (req, res) => {
 	const errorMessage = req.flash('error');

@@ -40,6 +40,17 @@ const pgSession = require('connect-pg-simple')(session);
 const port = process.env.PORT
 const app = express()
 app.use(cors())
+// Specify your frontend origin
+//const frontendOrigin = 'http://127.0.0.1:5500';
+
+// CORS configuration to accept requests from the frontend origin and allow credentials
+/*const corsOptions = {
+  origin: frontendOrigin,
+  credentials: true, // This is important for cookies, authorization headers with HTTPS
+};
+
+app.use(cors(corsOptions));*/
+
 app.use(express.json())
 app.use(express.static(path.join(__dirname, '..')));
 
@@ -65,25 +76,11 @@ const sessionConfig = {
   
   app.use(session(sessionConfig));
   app.use(flash());
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended:true}))
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/',recipeRouter)
 app.use('/', userRoutes);
-
-// CORS configuration
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || ["http://127.0.0.1:5500"].indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true, // Reflect the request's credentials mode
-};
-
-app.use(cors(corsOptions));
 
 /*function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
