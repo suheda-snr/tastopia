@@ -1,4 +1,3 @@
-import { BACKEND_URL } from "./config.js";
 import { Recipes } from './class/Recipes.js';
 // Import the createCard function from index.js
 import { searchResultsCard } from './renderedElements.js';
@@ -67,10 +66,10 @@ function filterRecipes() {
 
             // Update displayText with appropriate message
             if (count > 0) {
-                displayText.innerHTML = `<strong style="text-align: center; font-size: 23px; display: block;">Displaying ${count} results for your search keyword: "${input}"</strong>`;
+                displayText.innerHTML = `<strong style="text-align: center; font-size: 22px; display: block;">Displaying ${count} results for your search keyword: "${input}"</strong>`;
             } else {
                 displayText.innerHTML = `
-                    <strong style="text-align: center; font-size: 23px; display: block;">Oops! We couldn't find any matches for your search: "${input}"</strong>
+                    <strong style="text-align: center; font-size: 22px; display: block;">Oops! We couldn't find any matches for your search: "${input}"</strong>
                     <img src="../images/potato.jpg" alt="No Results Found" style="display: block; margin: 90px auto; max-width: 13%;">`;
             }
         })
