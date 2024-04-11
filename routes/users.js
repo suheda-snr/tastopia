@@ -10,6 +10,14 @@ router.route('/register')
     .post(catchAsync(users.register));
 
 router.route('/login')
+    .get((req, res, next) => {
+      if (req.isAuthenticated()) {
+        return res.redirect('/');
+      }
+      return users.renderLogin(req, res, next);
+    })
+    .post(users.login); 
+/*router.route('/login')
   .get((req, res, next) => {
     if (req.isAuthenticated()) {
       // If the user is already authenticated, redirect them to another page
@@ -21,7 +29,7 @@ router.route('/login')
   .post(passport.authenticate('local', {
     failureFlash: true,
     failureRedirect: '/login',
-  }), users.login);
+  }), users.login);*/
 
 router.get('/logout', users.logout)
 
