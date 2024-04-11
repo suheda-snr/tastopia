@@ -1,7 +1,7 @@
 import { Recipes } from './class/Recipes.js';
 import { categoryResultsCard } from "./renderedElements.js";
 
-const dropdownItems = document.querySelectorAll('.navbar .dropdown-menu a.dropdown-item');
+const dropdownItems = document.querySelectorAll("#navbarRecipeDropdown + .dropdown-menu .dropdown-item");
 dropdownItems.forEach(item => {
     item.addEventListener('click', (event) => {
         event.preventDefault();
@@ -35,10 +35,10 @@ function filterRecipes() {
             // Display message if no results found
             if (count === 0) {
                 displayText.innerHTML = `
-                <strong style="text-align: center; font-size: 22px; display: block;">Oops! We couldn't find any results for category ${category.toLowerCase()}</strong>
+                <strong style="text-align: center; font-size: 22px; display: block;">Oops! We couldn't find any results for ${category.toLowerCase()} category</strong>
                 <img src="../images/potato.jpg" alt="No Results Found" style="display: block; margin: 90px auto; max-width: 13%;">`;
             } else {
-                displayText.innerHTML = `<strong style="text-align: center; font-size: 22px; display: block;">Displaying ${count} recipes for category ${category.toLowerCase()}</strong>`;
+                displayText.innerHTML = `<strong style="text-align: center; font-size: 22px; display: block;">Displaying ${count} recipes for ${category.toLowerCase()} category</strong>`;
             }
         })
         .catch(error => {
@@ -49,15 +49,3 @@ function filterRecipes() {
 // Call the function to filter recipes
 window.addEventListener('DOMContentLoaded', filterRecipes);
 
-/*
-// Function to render category recipes
-function renderCategoryRecipes(recipes) {
-    const container = document.getElementById('category-results');
-    container.innerHTML = ''; // Clear previous content
-    
-    recipes.forEach(recipe => {
-        const card = categoryResultsCard(recipe);
-        container.appendChild(card);
-    });
-}
-*/
