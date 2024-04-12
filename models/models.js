@@ -46,6 +46,57 @@ CreateDate: {
   }
 });
 
+const Recipe = sequelize.define('Recipe', {
+  recipeid: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      field: 'recipeid'
+  },
+  userid: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      field: 'userid'
+  },
+  title: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      field: 'title'
+  },
+  description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      field: 'description'
+  },
+  ingredients: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      field: 'ingredients'
+  },
+  instructions: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      field: 'instructions'
+  },
+  postdate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      field: 'postdate'
+  },
+  category: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      field: 'category'
+  },
+  picture: {
+      type: DataTypes.TEXT,
+      field: 'picture'
+  }
+}, {
+  tableName: 'recipes',
+  timestamps: false
+})
+
 const Session = sequelize.define('Session', {
   sid: {
     type: DataTypes.STRING,
@@ -64,8 +115,13 @@ const Session = sequelize.define('Session', {
   tableName: 'session', // Set the table name explicitly
   timestamps: false // Disable timestamps for this table
 });
+
+User.hasMany(Recipe, { foreignKey: 'userid', as: 'recipes' });
+Recipe.belongsTo(User, { foreignKey: 'userid', as: 'author' });
+
 module.exports = {
   User,
+  Recipe,
   Session,
 };
 
