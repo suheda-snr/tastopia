@@ -309,7 +309,7 @@ height: 100%;
 }
 .form-control:focus {
     border-color: var(--logo-orange) !important;
-    box-shadow: 0 0 0 0.25rem rgba(255, 165, 0, 0.25) !important;
+    box-shadow: none !important;
 }
 .link-danger {
     color: var(--logo-orange) !important;
