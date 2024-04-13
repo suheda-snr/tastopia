@@ -36,7 +36,6 @@
 .search-bar {
     border-color: rgb(40, 37, 37); /* Set border color to orange */
   }
-  
   .search-bar:focus {
     outline: none;
     border-color: var(--logo-orange); /* Set border color to orange on focus */
@@ -45,6 +44,12 @@
   
   .btn-search {
     background-color: var(--logo-orange); /* Set background color for search button */
+  }
+  .btn-search:hover {
+    background-color: white !important; /* Change background color on hover */
+    opacity: 0.8 !important; /* Change opacity on hover */
+    transition: background-color 1s; /* Add transition effect */
+    border-color: black;
   }
 
   .row {
@@ -68,6 +73,7 @@
     background-color: var(--logo-orange); /* Set background color for button */
     border-color: var(--logo-orange); /* Set border color for button */
     color: white; /* Text color */
+    transition: background-color 1s; /* Add transition effect */
   }
   .btn-orange:hover {
     background-color: white; /* Change background color on hover */
@@ -96,6 +102,12 @@
   color: black;
 }
 
+/* Styling for the logout button */
+.login-button.logout {
+  border-color: var(--logo-orange); /* Orange border for login button */
+  color: black;
+}
+
 /* Styling for the signup button */
 .login-button.signup {
   background-color: var(--logo-orange); /* Orange background for sign-up button */
@@ -106,6 +118,8 @@
 .login-button.login:hover {
   background-color: var(--logo-orange);
   color:white;
+
+  transition: background-color 1s; /* Add transition effect */
 }
 
 /* Change background color of signup button on hover */
@@ -113,7 +127,17 @@
   background-color: white; /* White background for sign-up button on hover */
   color:black;
   border-color: var(--logo-orange); /* Orange border for sign-up button on hover */
+  transition: background-color 1s; /* Add transition effect */
 }
+
+/* Change background color of logout button on hover */
+.login-button.logout:hover {
+  background-color: white; /* White background for logout button on hover */
+  color:black;
+  border-color: var(--logo-orange); /* Orange border for logout button on hover */
+  transition: background-color 1s; /* Add transition effect */
+}
+
 .login-button {
   padding: 5px 10px; /* Increase padding to increase width */
   border: 2px solid transparent;
@@ -152,6 +176,8 @@
   .search-bar::placeholder {
     font-size: 15px !important; /* Adjust the size as needed */
 }
+/*logout button smaller screen*/
+
 }
 
 @media (min-width: 576px) and (max-width: 750px) {
@@ -221,7 +247,6 @@ img {
   width: 30%;
   display: block;
   margin: auto;
-  margin-top: 40px;
 }
 
 .fade {
@@ -321,7 +346,7 @@ height: 100%;
     background-color: white !important;
     border-color: var(--logo-orange) !important;
     color: black !important;
-    box-shadow: 0 0 0 0.15rem rgba(255, 165, 0, 0.25) !important;
+    transition: background-color 1s; /* Add transition effect */
 }
 
 
@@ -523,4 +548,9 @@ textarea {
 
 .saved-recipe-name {
   flex-grow: 1;
+}
+
+
+#logout {
+  margin-right: 15px;
 }
