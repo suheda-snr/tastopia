@@ -13,6 +13,7 @@ fetch('http://localhost:3001/api/check-login', {
   document.getElementById('logout').classList.remove('hide');
   document.getElementById('login').classList.add('hide');
   document.getElementById('signup').classList.add('hide');
+  document.getElementsByClassName('btn  btn-orange d-block d-sm-none btn-xs')[0].classList.add('hide');
    } else {
 	/*
 	 document.getElementById('login').style.display = 'block';
@@ -22,6 +23,7 @@ fetch('http://localhost:3001/api/check-login', {
 
 	 document.getElementById('login').classList.remove('hide');
 	 document.getElementById('signup').classList.remove('hide');
+	 document.getElementsByClassName('btn  btn-orange d-block d-sm-none btn-xs')[0].classList.remove('hide');
    }
  })
  .catch(error => {
