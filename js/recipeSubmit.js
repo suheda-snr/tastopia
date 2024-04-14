@@ -10,7 +10,7 @@ document.getElementById('recipeForm').addEventListener('submit', function(event)
     .then(response => response.json())
     .then(data => {
         if (data.success && data.recipeId) {
-            window.location.href = `/recipe/${data.recipeId}`; // Redirect to the new recipe page
+            window.location.href = `/recipePage.html?id=${data.recipeid}`; // Redirect to the new recipe page
         } else {
             // Handle errors or show messages
             console.error('Failed to create recipe:', data.message);

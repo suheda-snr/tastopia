@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
 const { isLoggedIn } = require('../middleware');
 const recipes = require('../controllers/recipes');
 const multer = require('multer');
@@ -18,7 +19,7 @@ const upload = multer({ storage: storage });
 router.get('/recipe/new', isLoggedIn, recipes.showRecipeForm);
 
 // Route to handle the submission of the form
-router.post('/recipe', isLoggedIn, upload.single('image'), recipes.submitRecipe);
+router.post('/recipe', isLoggedIn, upload.single('picture'), recipes.submitRecipe);
 
 router.get('/api/recipe/:id', async (req, res) => {
     try {
@@ -32,3 +33,4 @@ router.get('/api/recipe/:id', async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 });
+module.exports = router;
