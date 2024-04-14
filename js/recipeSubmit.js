@@ -1,8 +1,9 @@
+import { BACKEND_URL } from './config.js';
 document.getElementById('recipeForm').addEventListener('submit', function(event) {
     event.preventDefault();  // Prevent the default form submission
 
     const formData = new FormData(this);
-    fetch('/recipe', {
+    fetch(`${BACKEND_URL}/recipe`, {
         method: 'POST',
         body: formData
     })
