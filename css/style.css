@@ -409,6 +409,13 @@ img {
 }
 
 /* My Tastopia page */
+
+/* Hide radio buttons */
+input[type="radio"] {
+  display: none;
+}
+
+/* Style labels as buttons */
 .category-btn {
   background-color: var(--logo-orange);
   border: none;
@@ -423,7 +430,8 @@ img {
   cursor: pointer;
 }
 
-.category-btn:hover {
+/* Change background color on label click */
+input[type="radio"]:checked + .category-btn {
   background-color: white;
   border: 1px solid var(--logo-orange);
   color: var(--logo-orange);
@@ -437,7 +445,8 @@ img {
   cursor: pointer;
 }
 
-.category-btn:active {
+
+.category-btn:hover {
   background-color: white;
   border: 1px solid var(--logo-orange);
   color: var(--logo-orange);
@@ -550,7 +559,10 @@ textarea {
   flex-grow: 1;
 }
 
-
 #logout {
   margin-right: 15px;
+}
+
+.container-fluid {
+  margin-top: 15px;
 }

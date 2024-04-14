@@ -115,34 +115,48 @@
   </html>
   <h2 id="share-new-recipe">Share a new recipe</h2>
     <!-- Content for Share a new recipe -->
-    <form id="recipeForm" action="submit_recipe.php" method="post">
+    <form id="recipeForm">
       <label for="category">Recipe Category:</label><br>
-      <button type="button" class="category-btn" value="starter">Starter</button>
-      <button type="button" class="category-btn" value="main_course">Main Course</button>
-      <button type="button" class="category-btn" value="dessert">Dessert</button>
-      <button type="button" class="category-btn" value="pastry">Pastry</button>
-      <button type="button" class="category-btn" value="beverage">Beverage</button><br>
-  
-      <label for="time">Estimated Time (minutes):</label><br>
-      <input type="number" id="time" name="time" required><br>
-  
-      <label for="about">About the Food:</label><br>
-      <textarea id="about" name="about" required></textarea><br>
+      <input type="radio" id="starter" name="Category" value="Starter">
+      <label for="starter" class="category-btn">Starter</label>
+      <input type="radio" id="main_course" name="Category" value="Main Course">
+      <label for="main_course" class="category-btn">Main Course</label>
+      <input type="radio" id="dessert" name="Category" value="Dessert">
+      <label for="dessert" class="category-btn">Dessert</label>
+      <input type="radio" id="pastry" name="Category" value="Pastry">
+      <label for="pastry" class="category-btn">Pastry</label>
+      <input type="radio" id="beverage" name="Category" value="Beverage">
+      <label for="beverage" class="category-btn">Beverage</label><br><br>
 
-      <label for="input-group mb-3">Image of the food:</label><br>
-      <div class="input-group">
-        <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+      <label for="title" >Recipe Title:</label><br>
+      <textarea id="title" name="Title" required></textarea><br><br>
+      
+      <label for="time">Estimated Time (minutes):</label><br>
+      <input type="number" id="time" name="Time" required><br><br>
+      
+      <label for="description">Description:</label><br>
+      <textarea id="description" name="Description" required></textarea><br><br>
+
+      <label for="picture">Image of the food:</label><br>
+      <div class="input-group mb-3">
+        <input type="file" class="form-control" id="picture" name="Picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload" required>
         <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Attach image</button>
-      </div>
-  
+      </div><br>
+
+    <!--
+      <label for="picture">Image of the food:</label><br>
+    <textarea id="picture" name="Picture" required placeholder="Please, type the URL of the image"></textarea><br><br>
+    -->
+    
+      
       <label for="ingredients">Ingredients:</label><br>
-      <textarea id="ingredients" name="ingredients" required></textarea><br>
+      <textarea id="ingredients" name="Ingredients" required placeholder="Please, type the ingredient with commas (,) between them"></textarea><br><br>
   
       <label for="instructions">Instructions:</label><br>
-      <textarea id="instructions" name="instructions" required></textarea><br>
-  
+      <textarea id="instructions" name="Instructions" required></textarea><br>
+      
       <button type="submit" class="submit">Submit Recipe</button>
-  </form>
+    </form>
   
   <h2 id="my-recipes">My recipes</h2>
   
