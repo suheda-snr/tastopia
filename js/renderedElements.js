@@ -8,7 +8,7 @@ function searchResultsCard(recipe) {
         <a href="recipePage.html" class="card-link">
             <div class="row justify-content-center" id="cardRow1">
                 <div class="card h-100">
-                    <img src="${recipe.image}" class="card-img-top" alt="${recipe.title}">
+                     <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}">
                     <div class="card-body">
                         <h5 class="card-title no-underline">${recipe.title}</h5>
                         <p class="card-text">${recipe.username}</p> 
@@ -27,7 +27,7 @@ function categoryResultsCard(recipe) {
         <a href="recipePage.html" class="card-link">
             <div class="row justify-content-center" id="cardRow1">
                 <div class="card h-100">
-                    <img src="${recipe.image}" class="card-img-top" alt="${recipe.title}">
+                    <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}">
                     <div class="card-body">
                         <h5 class="card-title no-underline">${recipe.title}</h5>
                         <p class="card-text">${recipe.username}</p> 
