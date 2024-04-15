@@ -354,15 +354,23 @@ height: 100%;
 
 
 .card{
-  width: 250px;
+  width: 300px;
   margin-top: 25px;
   box-sizing: border-box;
-  border-color: var(--logo-orange);
+  border-color: transparent;
+  border-bottom: 1.5px solid var(--logo-orange);
+  border-radius: 0px;
+  --bs-card-spacer-y: 1.5rem; 
+  --bs-card-spacer-x: 0rem;
+}
+.card:hover {
+  box-shadow: 0 0 10px 0 var(--logo-orange);
+  transition: box-shadow 0.5s;
 }
 
 .card-title {
   color: var(--logo-orange);
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 .card-text {
   color: black;
