@@ -63,6 +63,11 @@ const Recipe = sequelize.define('Recipe', {
       allowNull: false,
       field: 'title'
   },
+  preptime: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      field: 'preptime'
+  },
   description: {
       type: DataTypes.TEXT,
       allowNull: false,

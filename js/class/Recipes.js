@@ -21,7 +21,7 @@ class Recipes {
 
   #readJson = (json) => {
     json.forEach(node => {
-      const recipe = new Recipe(node.recipeid, node.title, node.description, node.ingredients, node.instructions,node.postdate, node.category, node.picture, node.username)
+      const recipe = new Recipe(node.recipeid, node.title, node.preptime, node.description, node.ingredients, node.instructions,node.postdate, node.category, node.picture, node.username)
       this.#recipes.push(recipe)
     });
   }

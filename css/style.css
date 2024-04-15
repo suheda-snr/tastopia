@@ -52,9 +52,6 @@
     border-color: black;
   }
 
-  .row {
-    margin-top: opx;
-  }
 
 /* Change color of delete button */
 .search-bar::-webkit-search-cancel-button {
@@ -196,6 +193,7 @@
   }
   .logo {
     width: 120px;
+    margin-left: 10px;
 }
 .navbar-nav .nav-item {
   margin-right: 0px; /* Adjust this value according to your preference */

@@ -1,5 +1,12 @@
 drop database if exists recipesharing;
 create database recipesharing;
+
+drop table ratings;
+drop table comments;
+drop table savedRecipes;
+drop table recipes;
+drop table users;
+
 use recipesharing;
 CREATE TABLE Users (
     UserID SERIAL PRIMARY KEY,
@@ -12,6 +19,7 @@ CREATE TABLE Recipes (
     RecipeID SERIAL PRIMARY KEY,
     UserID INT NOT NULL,
     Title VARCHAR(255) NOT NULL,
+    Preptime INT NOT NULL,
     Description TEXT NOT NULL ,
     Ingredients TEXT NOT NULL,
     Instructions TEXT NOT NULL,
@@ -46,8 +54,8 @@ CREATE TABLE SavedRecipes (
 );
 INSERT INTO Users (Username, Email, Passwordhash, CreateDate) 
 VALUES 
-    ('user1', 'user1@example.com', 'password_hash_1', NOW()),
-    ('user2', 'user2@example.com', 'password_hash_2', NOW());
+    ('user1', 'user1@example.com', 'firstpassword', NOW()),
+    ('user2', 'user2@example.com', 'secondpassword', NOW());
 
 -- Inserting test recipes with descriptions
 INSERT INTO Recipes (UserID, Title, Description, Ingredients, Instructions, PostDate, Category, Picture)

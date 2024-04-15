@@ -2,12 +2,13 @@ const { Recipe } = require('../models/models');
 
 exports.submitRecipe = async (req, res, next) => {
     try {
-        const { title, description, ingredients, instructions, category } = req.body;
+        const { title, preptime, description, ingredients, instructions, category } = req.body;
         const userid = req.user.UserID;
         const image = req.file ? req.file.path : null; // Handling the file path if an image was uploaded
         const newRecipe = await Recipe.create({
             userid,
             title,
+            preptime,
             description,
             ingredients,
             instructions,
