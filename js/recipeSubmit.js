@@ -9,7 +9,7 @@ document.getElementById('recipeForm').addEventListener('submit', function(event)
     })
     .then(response => response.json())
     .then(data => {
-        if (data.success && data.recipeId) {
+        if (data.success && data.recipeid) {
             window.location.href = `/recipePage.html?id=${data.recipeid}`; // Redirect to the new recipe page
         } else {
             // Handle errors or show messages
