@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 const { isLoggedIn } = require('../middleware');
 const recipes = require('../controllers/recipes');
+const { Recipe } = require('../models/models');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
@@ -20,6 +21,10 @@ router.get('/recipe/new', isLoggedIn, recipes.showRecipeForm);
 
 // Route to handle the submission of the form
 router.post('/recipe', isLoggedIn, upload.single('picture'), recipes.submitRecipe);
+
+router.get('/recipe/:id', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'recipePage.html'));
+});
 
 router.get('/api/recipe/:id', async (req, res) => {
     try {

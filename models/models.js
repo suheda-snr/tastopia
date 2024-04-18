@@ -102,6 +102,47 @@ const Recipe = sequelize.define('Recipe', {
   timestamps: false
 })
 
+const Comment = sequelize.define('Comment', {
+  commentid: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      field: 'commentid'
+  },
+  recipeid: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+          model: 'recipes',
+          key: 'recipeid'
+      },
+      field: 'recipeid'
+  },
+  userid: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+          model: 'users',
+          key: 'userid'
+      },
+      field: 'userid'
+  },
+  commenttext: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      field: 'commenttext'
+  },
+  postdate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+      field: 'createdate'
+  }
+}, {
+  tableName: 'comments',
+  timestamps: false
+});
+
 const Session = sequelize.define('Session', {
   sid: {
     type: DataTypes.STRING,
@@ -123,10 +164,15 @@ const Session = sequelize.define('Session', {
 
 User.hasMany(Recipe, { foreignKey: 'userid', as: 'recipes' });
 Recipe.belongsTo(User, { foreignKey: 'userid', as: 'author' });
+Recipe.hasMany(Comment, { foreignKey: 'recipeid', as: 'comments' });
+User.hasMany(Comment, { foreignKey: 'userid', as: 'userComments' });
+Comment.belongsTo(Recipe, { foreignKey: 'recipeid', as: 'recipe' });
+Comment.belongsTo(User, { foreignKey: 'userid', as: 'user' });
 
 module.exports = {
   User,
   Recipe,
+  Comment,
   Session,
 };
 

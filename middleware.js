@@ -12,6 +12,17 @@ module.exports.isLoggedIn = (req, res, next) => {
   }
   next();
 };
+module.exports.isCommentAuthor = async (req, res, next) => {
+  const { commentid } = req.params;
+  const comment = await Comment.findByPk(commentid);
+  if (!comment) {
+      return res.redirect('/'); // Redirect somewhere relevant if comment not found
+  }
+  if (comment.userid !== req.user.id) {
+      return res.redirect(`/recipes/${comment.recipeid}`); // Redirect back to the recipe
+  }
+  next();
+};
 /*module.exports.isLoggedIn = (req,res,next) => { 
     if(!req.isAuthenticated()){
       req.flash("error", "You must be signed in to perform this action");

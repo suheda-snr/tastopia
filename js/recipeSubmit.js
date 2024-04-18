@@ -17,4 +17,4 @@ document.getElementById('recipeForm').addEventListener('submit', function(event)
         }
     })
     .catch(error => console.error('Error submitting recipe:', error));
-});
+}); window.location.href = `/recipePage.html?id=${data.recipeid}`;
