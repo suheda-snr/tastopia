@@ -13,6 +13,36 @@ function showSlides() {
   setTimeout(showSlides, 3000); // Change image every 3 seconds
 }
 
+
+// Owl carousel image media section
+$('.js-carousel').owlCarousel({
+  loop: true,
+ autoplay: true,
+  stagePAdding:  7,
+  margin:20,
+  animateOut:'fadeOut',
+  animateIn:'fadeIn',
+  nav: true,
+  autoPlayHoverPause: true,
+  items: 3,
+  navText: ["<span class='fa fa-chevron-left'></span>", "<span class='fa fa-chevron-right'></span>"],
+  /*responsive: {
+    0:{
+      items:1,
+      nav:false,
+    },
+    600:{
+      items:2,
+      nav:false,
+    },
+    1000:{
+      items:1,
+      nav:true,
+      loop:false
+    }
+  }*/
+});
+
 // Recipe sharing category button
 document.addEventListener('DOMContentLoaded', function() {
     var categoryBtns = document.querySelectorAll('.category-btn');

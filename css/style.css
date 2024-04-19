@@ -347,6 +347,96 @@ height: 100%;
     transition: background-color 1s; /* Add transition effect */
 }
 
+/* Owl Carsoul */
+
+.section {
+  padding: 7em 0;
+}
+.owl-carousel.major-carousel.owl-stage-outyer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.owl-prev,
+.owl-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: #000;
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+  color: #495050;
+}
+
+.owl-prev:hover,
+.owl-prev:focus,
+.owl-next:hover,
+.owl-next:focus {
+  color: #868e96;
+  outline: none;
+}
+
+.owl-prev:disabled,
+.owl-next:disabled {
+  color: #dee2e6;
+}
+
+.owl-prev {
+  left: -60px!important;
+}
+
+.owl-next {
+  right: -60px!important;
+}
+
+owl-carousel.major-carousel.owl-dots {
+  bottom : -30px!important;
+  position: relative;
+}
+
+.media-custom {
+  background-color: #fff;
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+  margin-bottom: 30px;
+  position: relative;
+  top: 0;
+}
+
+.media-custom > a {
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.media-custom img {
+  height: 400px;
+  object-fit: cover;
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+}
+
+.media-custom:focus, .media-custom:hover {
+  top: -2px;
+  -webkit-box-shadow: 0 2px 40 px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 40 px 0 rgba(0,0,0,0.2)
+}
+
+.media-custom:focus img, .media-custom:hover img {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.media-custom.media-buddy {
+  padding: 30px;
+}
+
+
 
 /* Search results page and Recipe cards*/
 
