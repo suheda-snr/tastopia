@@ -14,6 +14,11 @@
   label {
     margin-left: 50px;
   }
+  .submit:hover {
+    background-color: white;
+    color: #EA9239;
+    border: 1px solid #EA9239;
+  }
 </style>
 
 <body>
@@ -159,6 +164,7 @@
     </form>
   
   <h2 id="my-recipes">My recipes</h2>
+  <ul id="recipe-list"></ul>
   
   <!-- Content for My recipes -->
   <ul id="recipe-list" class="recipe-list">
@@ -180,5 +186,6 @@
   <script type="module" src="./js/searchResults.js" ></script>
   <script type="module" src="./js/categories.js" ></script>
   <script type="module" src="./js/recipeSubmit.js" ></script>
+  <script type="module" src="./js/recipeDelete.js" ></script>
 </body>
 </html>
