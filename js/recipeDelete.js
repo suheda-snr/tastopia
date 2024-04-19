@@ -1,4 +1,3 @@
-import { BACKEND_URL } from './config.js';
 // Fetch recipes associated with the logged-in user
 async function fetchRecipes() {
     try {
@@ -22,74 +21,95 @@ async function fetchRecipes() {
 
 // Display recipes on the webpage
 async function displayRecipes(recipes) {
-const recipeList = document.getElementById('recipe-list');
-recipeList.innerHTML = ''; // Clear previous list items
-recipes.forEach(recipe => {
-    const listItem = document.createElement('li');
-    const deleteIcon = document.createElement('span');
-    const recipeTitle = document.createElement('span');
-    
-    // Apply classes to elements
-    deleteIcon.className = 'delete-icon';
-    recipeTitle.className = 'recipe-title';
-    
-    // Set HTML content for delete icon
-    deleteIcon.innerHTML = '<i class="bi bi-trash-fill"></i>';
-    
-    // Set text content for recipe title
-    recipeTitle.textContent = recipe.title;
-    
-    // Append elements to list item
-    listItem.appendChild(recipeTitle);
-    listItem.appendChild(deleteIcon);
-    
-    // Append list item to recipe list
-    recipeList.appendChild(listItem);
-    
-    // Apply styles
-    recipeList.style.listStyleType = 'none'; // Remove list item dots
-    listItem.style.color = '#EA9239'; // Set text color to orange
-    deleteIcon.querySelector('i').style.color = '#EA9239'; // Set icon color to orange
-    listItem.style.marginBottom = '10px'; // Add margin bottom for spacing
-    deleteIcon.style.marginLeft = '30px'; // Add margin to the left of the delete icon
-    recipeList.style.paddingLeft = '50px';
-    
-    // Add hover effect
-    deleteIcon.addEventListener('mouseenter', function() {
-      deleteIcon.querySelector('i').style.color = 'black'; // Change icon color to red on hover
-    });
-    
-    deleteIcon.addEventListener('mouseleave', function() {
-      deleteIcon.querySelector('i').style.color = '#EA9239'; // Change icon color back to orange when not hovered
-    });
-    
+    const recipeList = document.getElementById('recipe-list');
+    recipeList.innerHTML = ''; // Clear previous list items
+    recipes.forEach(recipe => {
+        const listItem = document.createElement('li');
+        const deleteIcon = document.createElement('span');
+        const viewIcon = document.createElement('span'); 
+        const recipeTitle = document.createElement('span');
+        
+        // Apply classes to elements
+        deleteIcon.className = 'delete-icon';
+        viewIcon.className = 'view-icon'; // Add class for view icon
+        recipeTitle.className = 'recipe-title';
+        
+        // Set HTML content for icons
+        deleteIcon.innerHTML = '<i class="bi bi-trash-fill"></i>';
+        viewIcon.innerHTML = '<i class="bi bi-eye-fill"></i>'; 
+        
+        // Set text content for recipe title
+        recipeTitle.textContent = recipe.title;
+        
+        // Append elements to list item
+        listItem.appendChild(recipeTitle);
+        listItem.appendChild(viewIcon); 
+        listItem.appendChild(deleteIcon);
+        
+        
+        // Append list item to recipe list
+        recipeList.appendChild(listItem);
+        
+        // Apply styles
+        recipeList.style.listStyleType = 'none'; // Remove list item dots
+        listItem.style.color = '#EA9239'; // Set text color to orange
+        deleteIcon.querySelector('i').style.color = '#EA9239'; // Set delete icon color to orange
+        viewIcon.querySelector('i').style.color = '#EA9239'; // Set view icon color to green
+        listItem.style.marginBottom = '10px'; // Add margin bottom for spacing
+        deleteIcon.style.marginLeft = '20px'; // Adjust margin for delete icon
+        viewIcon.style.marginLeft = '60px'; // Adjust margin for view icon
+        recipeList.style.paddingLeft = '50px';
 
-    // Add click event to delete icon
-    deleteIcon.addEventListener('click', async () => {
-        const confirmDelete = confirm('Are you sure you want to delete this recipe?');
-        if (confirmDelete) {
-            try {
-                const response = await fetch(`/api/recipe/${recipe.recipeid}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Authorization': 'Bearer YOUR_JWT_TOKEN', // Replace with your JWT token
-                        'Content-Type': 'application/json'
+        // Add hover effect for view icon
+        viewIcon.addEventListener('mouseenter', function() {
+          viewIcon.querySelector('i').style.color = 'black'; // Change icon color to black on hover
+        });
+
+        viewIcon.addEventListener('mouseleave', function() {
+            viewIcon.querySelector('i').style.color = '#EA9239'; // Change icon color back to orange when not hovered
+        });
+        
+        // Add hover effect for delete icon
+        deleteIcon.addEventListener('mouseenter', function() {
+          deleteIcon.querySelector('i').style.color = 'black'; // Change icon color to black on hover
+        });
+        
+        deleteIcon.addEventListener('mouseleave', function() {
+          deleteIcon.querySelector('i').style.color = '#EA9239'; // Change icon color back to orange when not hovered
+        });
+
+        // Add click event to delete icon
+        deleteIcon.addEventListener('click', async () => {
+            const confirmDelete = confirm('Are you sure you want to delete this recipe?');
+            if (confirmDelete) {
+                try {
+                    const response = await fetch(`/api/recipe/${recipe.recipeid}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        // Remove the deleted recipe from the UI
+                        listItem.remove();
+                        console.log('Recipe deleted successfully:', data.message);
+                    } else {
+                        console.error('Failed to delete recipe:', data.message);
                     }
-                });
-                const data = await response.json();
-                if (response.ok) {
-                    // Remove the deleted recipe from the UI
-                    listItem.remove();
-                    console.log('Recipe deleted successfully:', data.message);
-                } else {
-                    console.error('Failed to delete recipe:', data.message);
+                } catch (error) {
+                    console.error('Error deleting recipe:', error);
                 }
-            } catch (error) {
-                console.error('Error deleting recipe:', error);
             }
-        }
-    });    
- });
+        });
+
+        // Add click event to view icon for redirecting to recipe page
+        viewIcon.addEventListener('click', () => {
+            // Redirect to recipe page passing recipe ID
+            window.location.href = `/recipePage.html?id=${recipe.recipeid}`;
+        });
+    });
 }
+
 // Call fetchRecipes when the page loads
 window.onload = fetchRecipes;
