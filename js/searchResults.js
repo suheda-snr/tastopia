@@ -59,6 +59,10 @@ function filterRecipes() {
                 if (recipe.title.toLowerCase().includes(input.toLowerCase()) || recipe.ingredients.toLowerCase().includes(input.toLowerCase())) {
                     // Create the card element using the imported function
                     const card = searchResultsCard(recipe);
+                    // Add event listener to redirect to new page with recipe ID
+                    card.addEventListener('click', () => {
+                        window.location.href = `recipePage.html?id=${recipe.id}`;
+                    });
                     searchResultsContainer.appendChild(card);
                     count++; // Increment count for each matching result
                 }

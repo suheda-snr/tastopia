@@ -28,6 +28,10 @@ function filterRecipes() {
             recipes.forEach(recipe => {
                 if (recipe.category.toLowerCase() === category.toLowerCase()) {
                     const card = categoryResultsCard(recipe);
+                    // Add event listener to redirect to new page with recipe ID
+                    card.addEventListener('click', () => {
+                         window.location.href = `recipePage.html?id=${recipe.id}`;
+                    });
                     categoryResultsContainer.appendChild(card);
                     count++;
                 }
@@ -49,3 +53,6 @@ function filterRecipes() {
 // Call the function to filter recipes
 window.addEventListener('DOMContentLoaded', filterRecipes);
 
+/* when clicked on a recipe, redirect to recipePage.html with the recipe ID as a query parameter
+`/recipePage.html?id=${data.recipeid}`;
+*/

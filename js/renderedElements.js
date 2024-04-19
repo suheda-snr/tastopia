@@ -5,7 +5,6 @@ function searchResultsCard(recipe) {
     const card = document.createElement('div');
     card.classList.add('col');
     card.innerHTML = `
-        <a href="recipePage.html" class="card-link">
             <div class="row justify-content-center" id="cardRow1">
                 <div class="card h-100">
                      <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}">
@@ -24,7 +23,6 @@ function categoryResultsCard(recipe) {
     const card = document.createElement('div');
     card.classList.add('col');
     card.innerHTML = `
-        <a href="recipePage.html" class="card-link">
             <div class="row justify-content-center" id="cardRow1">
                 <div class="card h-100">
                     <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}">
@@ -38,6 +36,7 @@ function categoryResultsCard(recipe) {
     `;
     return card;
 }
+
   
   // Export the searchResultsCard function to be used in other modules
   export { searchResultsCard, categoryResultsCard };
