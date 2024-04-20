@@ -1,4 +1,4 @@
-const { Recipe } = require('../models/models');
+const { Recipe,Comment } = require('../models/models');
 const db = require('../server/helpers/db.js');
 exports.submitRecipe = async (req, res, next) => {
     try {
@@ -39,6 +39,10 @@ exports.deleteRecipeById = async (req, res, next) => {
     try {
         const { id } = req.params;
         const userid = req.user.UserID;
+        
+        await Comment.destroy({
+            where: { recipeid: id }
+        });
 
         // Check if the recipe belongs to the logged-in user
         const recipe = await Recipe.findOne({ where: { recipeid: id, userid } });
