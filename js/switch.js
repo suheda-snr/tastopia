@@ -5,25 +5,29 @@ fetch('http://localhost:3001/api/check-login', {
   })
  .then(response => response.json())
  .then(data => {
+	const commentInput = document.getElementById('comment'); 
+	const submitButton = document.querySelector('#commentForm button'); // Assuming the button is inside the form with id 'commentForm'
    if (data.isLoggedIn) {
-	/*document.getElementById('login').style.display = 'none';
-	document.getElementById('signup').style.display = 'none';
-	document.getElementById('logout').style.display = 'block';*/
   document.getElementById('logout').classList.add('show');
   document.getElementById('logout').classList.remove('hide');
   document.getElementById('login').classList.add('hide');
   document.getElementById('signup').classList.add('hide');
   document.getElementsByClassName('btn  btn-orange d-block d-sm-none btn-xs')[0].classList.add('hide');
+   // Enable the comment form
+   commentInput.disabled = false;
+   commentInput.placeholder = 'Write a comment...'; // Default placeholder
+   submitButton.disabled = false; // Enable submit button if needed
    } else {
-	/*
-	 document.getElementById('login').style.display = 'block';
-	 document.getElementById('signup').style.display = 'block';
-	 document.getElementById('logout').style.display = 'none';*/
+	
 	 document.getElementById('logout').classList.add('hide');
 
 	 document.getElementById('login').classList.remove('hide');
 	 document.getElementById('signup').classList.remove('hide');
 	 document.getElementsByClassName('btn  btn-orange d-block d-sm-none btn-xs')[0].classList.remove('hide');
+	 // Disable the comment form
+	 commentInput.disabled = true;
+	 commentInput.placeholder = 'You have to log in to comment'; // Placeholder when logged out
+	 submitButton.disabled = true; // Disable submit button
    }
  })
  .catch(error => {

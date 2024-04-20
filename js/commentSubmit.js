@@ -13,17 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(`/api/recipe/${recipeid}/comments`)
         .then(response => response.json())
         .then(data => {
-            clearComments(); // Clear existing comments before loading new ones
-            // Check if data is actually an array before trying to use forEach
-            //if (Array.isArray(data)) {
+            clearComments(); 
                 if (data.length === 0) {
                     displayNoCommentsMessage();
                 } else {
                     data.forEach(comment => displayComment(comment));
                 }
-            /*} else {
-                console.error('Expected an array of comments, but got:', data);
-            }*/
         })
         .catch(error => console.error('Failed to load comments:', error));
     }
@@ -71,10 +66,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Optionally clear the form or give user feedback
                 document.getElementById('comment').value = '';  // Clear the text area
                 const noCommentsMessage = document.getElementById('no-comments-div');
-        if (noCommentsMessage) {
+            if (noCommentsMessage) {
             noCommentsMessage.remove();
         }
-                addNewCommentDirectly(data.comment); // Update comments display immediately
+            addNewCommentDirectly(data.comment); // Update comments display immediately
+            
             } else {
                 console.error('Failed to submit comment:', data.message);
             }
