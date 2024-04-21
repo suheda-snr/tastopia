@@ -33,13 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
             if (data.success) {
                 // Redirect or show success message
                 window.location.href = "/";
+                
             } else {
                 // Handle errors, display error message
-                alert(data.message || "Login failed.");
+                alert(data.message || "Your email or password is not correct");
             }
         })
         .catch(error => {
             console.error("Error during login:", error);
+            alert("Login error, please try again later.");
         });
     });
 });

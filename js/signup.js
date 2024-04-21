@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	  // Prepare data for submission
 	  const formData = { email, password, username };
 	  
-	  // Example AJAX request (you'll need to handle this on the server side)
+	
 	  fetch(`${BACKEND_URL}/register`, {
 		method: "POST",
 		headers: {
@@ -46,7 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	  .then(data => {
 		if(data.success) {
 		  // Redirect or show success message
-		  window.location.href = "/";
+		 window.location.href = "/";
+		 
 		} else {
 		  // Handle errors, display error message
 		  alert(data.message);
@@ -54,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	  })
 	  .catch(error => {
 		console.error("Error during signup:", error);
+		alert("Signup error, please try again later.");
 	  });
 	});
   });
