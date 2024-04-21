@@ -80,6 +80,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     container.parentNode.removeChild(container);
                 }
             });
+        } else {
+            // If no ratings, display "(0)"
+            ratingValueElement.textContent = "(0)";
         }
     })
     .catch(error => {
@@ -147,8 +150,10 @@ document.addEventListener("DOMContentLoaded", function() {
             submissionMessage.style.color = 'green'; // Set text color to green
             setTimeout(() => {
                 submissionMessage.textContent = ''; // Clear message after 1.5 seconds
+                // Refresh the page after successful submission
+                window.location.reload();
             }, 1500);
-        })
+        })        
         .catch(error => {
             console.error('Error submitting rating:', error); // Console message: Error submitting rating
             submissionMessage.textContent = 'Failed to submit rating'; // Display error message
@@ -157,51 +162,82 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     // Function to display rating counts for each rating
-    function displayRatingCounts(ratings) {
-        const ratingCounts = [0, 0, 0, 0, 0]; // Initialize array to store counts for each rating
-        ratings.forEach(rating => {
-            ratingCounts[rating.rating - 1]++; // Increment count for corresponding rating
-        });
+// Function to display rating counts for each rating
+function displayRatingCounts(ratings) {
+    const ratingCounts = [0, 0, 0, 0, 0]; // Initialize array to store counts for each rating
+    ratings.forEach(rating => {
+        ratingCounts[rating.rating - 1]++; // Increment count for corresponding rating
+    });
+
+    // Create a container to hold the star icons and rating counts
+    const container = document.createElement('div');
+    container.id = 'rating-counts-container'; // Set id for easy removal
+    container.style.position = 'fixed';
+    container.style.zIndex = '9999';
+    container.style.background = 'white';
+    container.style.border = '1px solid #EA9239';
+    container.style.borderRadius = '5px';
+    container.style.padding = '10px';
     
-        // Create a container to hold the star icons and rating counts
-        const container = document.createElement('div');
-        container.id = 'rating-counts-container'; // Set id for easy removal
-        container.style.position = 'fixed';
-        container.style.zIndex = '9999';
-        container.style.background = 'white';
-        container.style.border = '1px solid #EA9239';
-        container.style.borderRadius = '5px';
-        container.style.padding = '10px';
+    // Append the container to the document body
+    document.body.appendChild(container);
+
+    // Update container position based on mouse movement
+    document.addEventListener('mousemove', function(e) {
+        container.style.left = e.pageX + 'px';
+        container.style.top = e.pageY + 'px';
+    });
+
+    // Display average rating out of five
+    const averageRating = calculateAverageRating(ratings);
+    const averageRatingText = document.createElement('div');
+    averageRatingText.textContent = `${averageRating.toFixed(1)} out of 5`;
+    averageRatingText.style.fontWeight = 'bold';
+    container.appendChild(averageRatingText);
+
+    // Add space after "out of 5"
+    const spaceAfterRating = document.createElement('div');
+    spaceAfterRating.style.marginBottom = '5px';
+    container.appendChild(spaceAfterRating);
+
+    // Display stars and rating counts
+    for (let i = ratingCounts.length - 1; i >= 0; i--) {
+        const ratingCount = ratingCounts[i];
+        const starContainer = document.createElement('div');
         
-        // Append the container to the document body
-        document.body.appendChild(container);
-    
-        // Update container position based on mouse movement
-        document.addEventListener('mousemove', function(e) {
-            container.style.left = e.pageX + 'px';
-            container.style.top = e.pageY + 'px';
-        });
-    
-        // Display stars and rating counts
-        for (let i = 0; i < ratingCounts.length; i++) {
-            const ratingCount = ratingCounts[i];
-            const starContainer = document.createElement('div');
-            
-            // Add star icons for the star count
-            const starIcons = '&#9733;'.repeat(i + 1); // Unicode star character
-            const starText = document.createElement('span');
-            starText.innerHTML = starIcons;
-            starText.style.color = '#EA9239'; 
-            starContainer.appendChild(starText);
-    
-            // Add rating count in black color
-            const countText = document.createElement('span');
-            countText.textContent = `: ${ratingCount}`;
-            countText.style.color = 'black'; // Make the text black
-            starContainer.appendChild(countText);
-    
-            container.appendChild(starContainer);
-        }
+        // Add star icons for the star count
+        const starIcons = '&#9733;'.repeat(i + 1); // Unicode star character
+        const starText = document.createElement('span');
+        starText.innerHTML = starIcons;
+        starText.style.color = '#EA9239'; 
+        starContainer.appendChild(starText);
+
+        // Add space before the rating count
+        starContainer.appendChild(document.createTextNode(' '));
+
+        // Add rating count in black color
+        const countText = document.createElement('span');
+        countText.textContent = `: ${ratingCount}`;
+        countText.style.color = 'black'; // Make the text black
+        starContainer.appendChild(countText);
+
+        // Add space after the rating count
+        starContainer.appendChild(document.createTextNode(' '));
+
+        container.appendChild(starContainer);
     }
-       
+
+    // Add space before "Total Ratings"
+    const spaceBeforeTotal = document.createElement('div');
+    spaceBeforeTotal.style.marginTop = '10px';
+    container.appendChild(spaceBeforeTotal);
+
+    // Display total rating count in smaller grey text
+    const totalRatingCount = ratings.length;
+    const totalRatingText = document.createElement('div');
+    totalRatingText.textContent = `${totalRatingCount} Ratings`;
+    totalRatingText.style.color = 'grey'; // Set text color to grey
+    totalRatingText.style.fontSize = '0.9em'; // Set font size to smaller
+    container.appendChild(totalRatingText);
+}
 });
