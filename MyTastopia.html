@@ -61,8 +61,13 @@
           <div id="signup" class="ms-2 d-none d-sm-block">
             <a href="signup.html" class="login-button signup">Sign up</a>
           </div>
-          <div id="logout" class="ms-2 d-none d-sm-block">
-            <a href="/logout" class="login-button signup" >Log out</a>
+          <div id="logout" class="ms-2">
+            <!-- Visible on small screens -->
+            <a href="/logout" class="login-button signup d-block d-sm-none">
+              <i class="bi bi-box-arrow-right"></i>
+            </a>
+            <!-- Visible on larger screens -->
+            <a href="/logout" class="login-button signup d-none d-sm-block">Log out</a>
           </div>
         </div>
       </div>

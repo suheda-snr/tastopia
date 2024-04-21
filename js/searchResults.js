@@ -74,7 +74,7 @@ function filterRecipes() {
             } else {
                 displayText.innerHTML = `
                     <strong style="text-align: center; font-size: 22px; display: block;">Oops! We couldn't find any matches for your search: "${input}"</strong>
-                    <img src="../images/potato.jpg" alt="No Results Found" style="display: block; margin: 90px auto; max-width: 13%;">`;
+                    <img src="../images/potato.jpg" alt="No Results Found" style="display: block; margin: 70px auto; width:150px; height: auto;"/>`;
             }
         })
         .catch(error => {

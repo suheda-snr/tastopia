@@ -40,7 +40,7 @@ function filterRecipes() {
             if (count === 0) {
                 displayText.innerHTML = `
                 <strong style="text-align: center; font-size: 22px; display: block;">Oops! We couldn't find any results for ${category.toLowerCase()} category</strong>
-                <img src="../images/potato.jpg" alt="No Results Found" style="display: block; margin: 90px auto; max-width: 13%;">`;
+                <img src="../images/potato.jpg" alt="No Results Found" style="display: block; margin: 70px auto; width:150px; height: auto;"/>`;
             } else {
                 displayText.innerHTML = `<strong style="text-align: center; font-size: 22px; display: block;">Displaying ${count} recipes for ${category.toLowerCase()} category</strong>`;
             }
