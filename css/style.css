@@ -2,6 +2,7 @@
     --logo-orange:  #EA9239;
   }
 
+
 /* Custom CSS for the first container of Home Page*/
  .navbar-expand-custom {
     justify-content: center;
@@ -81,14 +82,14 @@
     margin-top: 10px;
     width: 90%;
   }
-
+  /*navbar toggler icon*/
+  .navbar-toggler {
+    padding: 2px 8px;
+}
+.search-bar::-webkit-search-cancel-button {
+  display: none;
+}
 /* Custom CSS for adding space between navbar elements */
-.navbar-nav .nav-item {
-    margin-right: 30px; /* Adjust this value according to your preference */
-}
-.col-auto {
-  margin-right: 5px; /* Adjust this value according to your preference */
-}
 .container-fluid {
   margin-top: 15px;
 }
@@ -241,12 +242,6 @@
 }
 
 
-img {
-  width: 30%;
-  display: block;
-  margin: auto;
-}
-
 .fade {
   animation-name: fade;
   animation-duration: 3s;
@@ -258,7 +253,7 @@ img {
 }
 
 #maintext {
-  font-size: 23px;
+  font-size: 20px;
   margin-top: 40px;
 }
 
