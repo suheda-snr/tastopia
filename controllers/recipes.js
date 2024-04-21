@@ -1,4 +1,4 @@
-const { Recipe,Comment } = require('../models/models');
+const { Recipe,Comment, Rating } = require('../models/models');
 const db = require('../server/helpers/db.js');
 exports.submitRecipe = async (req, res, next) => {
     try {
@@ -41,6 +41,9 @@ exports.deleteRecipeById = async (req, res, next) => {
         const userid = req.user.UserID;
         
         await Comment.destroy({
+            where: { recipeid: id }
+        });
+        await Rating.destroy({
             where: { recipeid: id }
         });
 

@@ -17,7 +17,7 @@ fetch('http://localhost:3001/api/check-login', {
         // Disable the input and button if the user is not logged in
         commentInput.disabled = true;
         submitButton.disabled = true;
-        commentInput.placeholder = 'You have to log in to comment'; // Show login prompt
+        commentInput.placeholder = 'You have to log in to rate and review'; // Show login prompt
     }
 }
   if (data.isLoggedIn) {

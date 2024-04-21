@@ -8,6 +8,7 @@ const { recipeRouter } = require('./routes/recipe.js')
 const userRoutes = require('../routes/users');
 const shareRecipeRoutes = require('../routes/recipes');
 const commentRoutes = require('../routes/comments');
+const rateRoutes = require('../routes/ratings');
 const path = require('path');
 const { sequelize } = require('./helpers/database');
 const { isLoggedIn } = require('../middleware');
@@ -84,6 +85,7 @@ app.use('/',recipeRouter)
 app.use('/', userRoutes);
 app.use('/', shareRecipeRoutes);
 app.use('/', commentRoutes);
+app.use('/', rateRoutes);
 
 /*function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

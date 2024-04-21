@@ -207,16 +207,16 @@
                         <p class="text-md-start text-center" style="color: #EA9239;">Username</p>
                     </div>
                     <div class="col-md-8 text-md-end text-center">
-                        <!-- Rating Component -->
-                        <div class="container" id="rateSave">
-                            <ul class="rating d-inline-flex " data-mdb-toggle="rating" readonly>
-                                <li><i class="far fa-star fa-sm text-primary" title="Bad"></i></li>
-                                <li><i class="far fa-star fa-sm text-primary" title="Poor"></i></li>
-                                <li><i class="far fa-star fa-sm text-primary" title="OK"></i></li>
-                                <li><i class="far fa-star fa-sm text-primary" title="Good"></i></li>
-                                <li><i class="far fa-star fa-sm text-primary" title="Excellent"></i></li>
-                                <li><span id="rating-value">(3/5)</span></li>
-                            </ul>
+                        <!-- Rating Component-->
+                        <div class="container" id="averageRate">
+                          <ul class="rating d-inline-flex " data-mdb-toggle="rating" readonly>
+                              <li><i class="far fa-star fa-sm text-primary" title="Bad"></i></li>
+                              <li><i class="far fa-star fa-sm text-primary" title="Poor"></i></li>
+                              <li><i class="far fa-star fa-sm text-primary" title="OK"></i></li>
+                              <li><i class="far fa-star fa-sm text-primary" title="Good"></i></li>
+                              <li><i class="far fa-star fa-sm text-primary" title="Excellent"></i></li>
+                              <li><span id="rating-value"></span></li>
+                          </ul>
                             <!-- Save Button -->
                             <button class="btn btn-succes"><i class="bi bi-bookmark"></i> Save it!</button>
                         </div>
@@ -258,18 +258,6 @@
                      <h5><b>See how others liked this food:</b></h5>
                     <!-- Add comments with DOM manipulation -->
                    <div id="comments-container">
-                    <div class="comment" style="border: 1px solid black; border-radius: 5px; padding: 5px; margin-bottom: 10px; background-color: #f0f0f0;">
-                         <p><span style="color: #EA9239; font-weight: bold;">User 1:</span><br>This recipe was fantastic!</p>
-                    </div>
-                    <div class="comment" style="border: 1px solid black; border-radius: 5px; padding: 5px; margin-bottom: 10px; background-color: #f0f0f0;">
-                        <p><span style="color: #EA9239; font-weight: bold;">User 2:</span><br>I added a bit more spice and it turned out great!</p>
-                    </div>
-                    <div class="comment" style="border: 1px solid black; border-radius: 5px; padding: 5px; margin-bottom: 10px; background-color: #f0f0f0;">
-                         <p><span style="color: #EA9239; font-weight: bold;">User 3:</span><br>I loved this recipe! I will definitely make it again.</p>
-                     </div>
-                    <div class="comment" style="border: 1px solid black; border-radius: 5px; padding: 5px; margin-bottom: 10px; background-color: #f0f0f0;">
-                         <p><span style="color: #EA9239; font-weight: bold;">User 4:</span><br>This was a hit with my family!</p>
-                    </div>
                    </div>
                 </div>
             </div>  
@@ -288,7 +276,7 @@
                     <div>
                         <p><h5><b>Rate and Review</b></h5></p>
                         <!-- Rating component -->
-                        <ul class="rating" data-mdb-toggle="rating">
+                        <ul class="rating" id ="ratingStars"data-mdb-toggle="rating">
                             <li>
                                 <i class="far fa-star fa-sm text-primary" title="Bad"></i>
                             </li>
@@ -304,7 +292,9 @@
                             <li>
                                 <i class="far fa-star fa-sm text-primary" title="Excellent"></i>
                             </li>
+                            <div style="padding-left: 40px;" id="submission-message"></div>
                         </ul>
+                        <!-- HTML -->
                     </div>
                     <form id="commentForm">
                         <div style="position: relative;">
@@ -329,8 +319,6 @@
 </div>
 
 
-  
-
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="./js/index.js" ></script> 
@@ -338,71 +326,6 @@
   <script type="module" src="./js/searchResults.js" ></script>
   <script type="module" src="./js/categories.js" ></script>
   <script type="module" src="./js/commentSubmit.js"></script>
-  <!--Rating Value JS-->
-  <script>
-  // Get all the required values from database and modify the code accordingly
-  const ratingData = {
-    "rating": 3,
-    "text": "OK"
-  };
-
-  // Get the ul element
-  const ulElement = document.querySelector('.rating');
-
-  // Get all the li elements inside the ul
-  const liElements = ulElement.querySelectorAll('li');
-
-  // Get the rating text element
-  const ratingTextElement = document.getElementById('rating-value');
-
-  // Loop through each li element and update the class of the i element based on the rating
-  liElements.forEach((li, index) => {
-    const iElement = li.querySelector('i');
-    if (index < ratingData.rating) {
-      iElement.classList.remove('far');
-      iElement.classList.add('fas');
-      iElement.classList.add('text-primary');
-    } else {
-      iElement.classList.remove('fas');
-      iElement.classList.add('far');
-      iElement.classList.remove('text-primary');
-    }
-  });
-
-  // Set the title attribute of the ul element to display the corresponding text for the rating
-  ulElement.setAttribute('title', ratingData.text);
-
-  // Display the rating text below the rating component
-  ratingTextElement.innerHTML = ratingData.rating;
-</script>
-  <!-- Rating Component JS -->
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const ratingElement = document.querySelectorAll('.rating')[1];
-      const stars = ratingElement.querySelectorAll('.fa-star');
-  
-      stars.forEach((star, index) => {
-        star.addEventListener('click', function() {
-          const rating = index + 1;
-          resetRating();
-          highlightStars(rating);
-        });
-      });
-  
-      function resetRating() {
-        stars.forEach(star => {
-          star.classList.remove('fas');
-          star.classList.add('far');
-        });
-      }
-  
-      function highlightStars(rating) {
-        for (let i = 0; i < rating; i++) {
-          stars[i].classList.remove('far');
-          stars[i].classList.add('fas');
-        }
-      }
-    });
-  </script>
+  <script type="module" src="./js/rating.js"></script>
 </body>
 </html>

@@ -143,6 +143,41 @@ const Comment = sequelize.define('Comment', {
   timestamps: false
 });
 
+const Rating = sequelize.define('Rating', {
+  ratingid: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      field: 'ratingid'
+  },
+  recipeid: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+          model: 'recipes',
+          key: 'recipeid'
+      },
+      field: 'recipeid'
+  },
+  userid: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+          model: 'users',
+          key: 'userid'
+      },
+      field: 'userid'
+  },
+  rating: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      field: 'rating'
+  }
+}, {
+  tableName: 'ratings',
+  timestamps: false
+});
+
 const Session = sequelize.define('Session', {
   sid: {
     type: DataTypes.STRING,
@@ -165,14 +200,19 @@ const Session = sequelize.define('Session', {
 User.hasMany(Recipe, { foreignKey: 'userid', as: 'recipes' });
 Recipe.belongsTo(User, { foreignKey: 'userid', as: 'author' });
 Recipe.hasMany(Comment, { foreignKey: 'recipeid', as: 'comments' });
+Recipe.hasMany(Rating, { foreignKey: 'recipeid', as: 'ratings' });
 User.hasMany(Comment, { foreignKey: 'userid', as: 'userComments' });
 Comment.belongsTo(Recipe, { foreignKey: 'recipeid', as: 'recipe' });
 Comment.belongsTo(User, { foreignKey: 'userid', as: 'user' });
+Rating.belongsTo(Recipe, { foreignKey: 'recipeid', as: 'recipe' });
+Rating.belongsTo(User, { foreignKey: 'userid', as: 'user' });
+
 
 module.exports = {
   User,
   Recipe,
   Comment,
+  Rating,
   Session,
 };
 
