@@ -168,10 +168,10 @@
 
 @media (max-width: 576px) {
   .search-bar {
-    width: 60%; /* Adjust width for smaller screens */
+    width: 70%; /* Adjust width for smaller screens */
     height: 65%;
     margin-top: 10px;
-    margin-left: 30px;
+    margin-left: 10px;
   }
   .logo {
     width: 90px;
@@ -185,7 +185,7 @@
 
 @media (min-width: 576px) and (max-width: 750px) {
   .search-bar {
-    width: 70%;
+    width: 80%;
     margin-left: 15px;
   }
   .logo {
