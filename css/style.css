@@ -171,13 +171,13 @@
     width: 60%; /* Adjust width for smaller screens */
     height: 65%;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 30px;
   }
   .logo {
     width: 90px;
   }
   .search-bar::placeholder {
-    font-size: 15px !important; /* Adjust the size as needed */
+    font-size: 14px !important; /* Adjust the size as needed */
 }
 /*logout button smaller screen*/
 
