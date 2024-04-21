@@ -27,6 +27,11 @@
     margin-left: 10px; /* Adjust the margin as needed */
   }
 
+  /* Custom CSS for adding space between navbar elements */
+.navbar-nav .nav-item {
+  margin-right: 30px; /* Adjust this value according to your preference */
+}
+
   .navbar-light .navbar-nav .nav-link {
     color: black; /* Set text color for navbar links */
   }  
