@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tastopia HP</title>
-  <!-- Bootstrap CSS -->
+    <title>My Tastopia</title>
+      <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css"> <!-- Custom CSS -->
-  <style>
-    a{
-  color:transparent;
+</head>
+<style>
+  label {
+    margin-left: 50px;
+  }
+  .submit:hover {
+    background-color: white;
+    color: #EA9239;
+    border: 1px solid #EA9239;
   }
 </style>
-</head>
+
 <body>
-  
+      
   <div class="container-fluid">
     <!-- First row for logo, search bar, and login -->
     <div class="row align-items-center">
@@ -115,18 +121,62 @@
       </div>
     </div>
   </div>
+  <div id= chef class="chef">
+    <img src="./images/4246.jpg" alt="chef">
+  </div>
+  
+  <script src="./js/index.js"></script>
+  </html>
+  <h2 id="share-new-recipe">Share a new recipe</h2>
+    <!-- Content for Share a new recipe -->
+    <form id="recipeForm" enctype="multipart/form-data">
+      <label for="category">Recipe Category:</label><br>
+      <input type="radio" id="starter" name="category" value="Starter">
+      <label for="starter" class="category-btn">Starter</label>
+      <input type="radio" id="main_course" name="category" value="Main Course">
+      <label for="main_course" class="category-btn">Main Course</label>
+      <input type="radio" id="dessert" name="category" value="Dessert">
+      <label for="dessert" class="category-btn">Dessert</label>
+      <input type="radio" id="pastry" name="category" value="Pastry">
+      <label for="pastry" class="category-btn">Pastry</label>
+      <input type="radio" id="beverage" name="category" value="Beverage">
+      <label for="beverage" class="category-btn">Beverage</label><br><br>
 
+      <label for="title" >Recipe Title:</label><br>
+      <textarea id="title" name="title" required></textarea><br><br>
+      
+      <label for="preptime">Estimated Time (minutes):</label><br>
+      <input type="number" id="preptime" name="preptime" required><br><br>
+      
+      <label for="description">Description:</label><br>
+      <textarea id="description" name="description" required></textarea><br><br>
 
-<div class="container-fluid">
-  <div class="row" id="displayText"></div>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3" id="search-results"></div>
-    </div>
+      <label for="picture">Image of the food:</label><br>
+      <div class="input-group mb-3">
+        <input type="file" class="form-control" id="picture" name="picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload" required>
+        <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Attach image</button>
+      </div><br>
+        
+      <label for="ingredients">Ingredients:</label><br>
+      <textarea id="ingredients" name="ingredients" required placeholder="Please, type the ingredient with commas (,) between them"></textarea><br><br>
+  
+      <label for="instructions">Instructions:</label><br>
+      <textarea id="instructions" name="instructions" required></textarea><br>
+      
+      <button type="submit" class="submit">Submit Recipe</button>
+    </form>
+ 
 
-
+  <!-- Bootstrap Scripts (jQuery and Popper.js) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./js/index.js" ></script> 
+  <script type="module" src="./js/switch.js" ></script>
   <script type="module" src="./js/searchResults.js" ></script>
   <script type="module" src="./js/categories.js" ></script>
-  <script type="module" src="./js/switch.js" ></script>
+  <script type="module" src="./js/recipeSubmit.js" ></script>
+  <script type="module" src="./js/recipeDelete.js" ></script>
 </body>
 </html>

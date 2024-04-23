@@ -70,5 +70,5 @@ exports.deleteRecipeById = async (req, res, next) => {
 
 
 exports.showRecipeForm = (req, res) => {
-    res.redirect('/MyTastopia.html'); // Redirect to the static HTML page
+    res.redirect('/ShareRecipe.html'); // Redirect to the static HTML page
 };
