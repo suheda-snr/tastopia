@@ -17,30 +17,26 @@ function showSlides() {
 // Owl carousel image media section
 $('.js-carousel').owlCarousel({
   loop: true,
- autoplay: true,
+  autoplay: true,
   stagePAdding:  7,
   margin:20,
   animateOut:'fadeOut',
   animateIn:'fadeIn',
   nav: true,
   autoPlayHoverPause: true,
-  items: 3,
+  items: 5,
   navText: ["<span class='fa fa-chevron-left'></span>", "<span class='fa fa-chevron-right'></span>"],
-  /*responsive: {
+  responsive: {
     0:{
-      items:1,
-      nav:false,
+      items:1
     },
     600:{
-      items:2,
-      nav:false,
+      items:2
     },
     1000:{
-      items:1,
-      nav:true,
-      loop:false
+      items:3
     }
-  }*/
+  }
 });
 
 // Recipe sharing category button

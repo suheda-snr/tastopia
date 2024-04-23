@@ -391,7 +391,7 @@ height: 100%;
   right: -60px!important;
 }
 
-owl-carousel.major-carousel.owl-dots {
+.owl-carousel.major-carousel.owl-dots {
   bottom : -30px!important;
   position: relative;
 }
@@ -413,7 +413,7 @@ owl-carousel.major-carousel.owl-dots {
 }
 
 .media-custom img {
-  height: 400px;
+  height: 300px;
   object-fit: cover;
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
@@ -436,7 +436,30 @@ owl-carousel.major-carousel.owl-dots {
   padding: 30px;
 }
 
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+  .owl-carousel .owl-item {
+      width: 80%; /* Adjust item width for smaller screens */
+  }
+}
 
+@media (max-width: 400px) {
+  .owl-carousel .owl-item {
+      width: 100%; /* Adjust item width for even smaller screens */
+  }
+}
+
+/* Define CSS styles for the text-black class */
+.text-black {
+  color: black; /* Set text color to black */
+  font-size: 1rem; /* Set font size to 1rem (adjust as needed) */
+  text-align: center; /* Center-align text */
+  text-decoration: none; /* Remove underline from anchor links */
+}
+
+.text-black:hover {
+  color: darkgray; /* Change text color on hover (optional) */
+}
 
 /* Search results page and Recipe cards*/
 
