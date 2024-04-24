@@ -3,7 +3,6 @@ create database recipesharing;
 
 drop table ratings;
 drop table comments;
-drop table savedRecipes;
 drop table recipes;
 drop table users;
 
@@ -44,13 +43,6 @@ CREATE TABLE Ratings (
     Rating INT CHECK (Rating >= 1 AND Rating <= 5),
     FOREIGN KEY (RecipeID) REFERENCES Recipes(RecipeID),
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
-);
-CREATE TABLE SavedRecipes (
-    SavedID SERIAL PRIMARY KEY,
-    UserID INT NOT NULL,
-    RecipeID INT NOT NULL,
-    FOREIGN KEY (UserID) REFERENCES Users(UserID),
-    FOREIGN KEY (RecipeID) REFERENCES Recipes(RecipeID)
 );
 INSERT INTO Users (Username, Email, Passwordhash, CreateDate) 
 VALUES 
