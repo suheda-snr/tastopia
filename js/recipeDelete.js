@@ -25,6 +25,7 @@ async function displayRecipes(recipes) {
     recipeList.innerHTML = ''; // Clear previous list items
     recipes.forEach(recipe => {
         const listItem = document.createElement('li');
+        listItem.classList.add('recipe-list-item');
         const deleteIcon = document.createElement('span');
         const viewIcon = document.createElement('span'); 
         const recipeTitle = document.createElement('span');
@@ -39,12 +40,21 @@ async function displayRecipes(recipes) {
         viewIcon.innerHTML = '<i class="bi bi-eye-fill"></i>'; 
         
         // Set text content for recipe title
-        recipeTitle.textContent = recipe.title;
+        recipeTitle.textContent = capitalizeFirstLetterEachWord(recipe.title);
+
+        // Create container for icons
+        const iconContainer = document.createElement('div');
+        iconContainer.className = 'icon-container';
+        iconContainer.appendChild(viewIcon);
+        iconContainer.appendChild(deleteIcon);
+        
+
+
         
         // Append elements to list item
         listItem.appendChild(recipeTitle);
-        listItem.appendChild(viewIcon); 
-        listItem.appendChild(deleteIcon);
+        listItem.appendChild(iconContainer);
+
         
         
         // Append list item to recipe list
@@ -78,6 +88,12 @@ async function displayRecipes(recipes) {
           deleteIcon.querySelector('i').style.color = '#EA9239'; // Change icon color back to orange when not hovered
         });
 
+        function capitalizeFirstLetterEachWord(str) {
+            return str.replace(/\b\w/g, function (char) {
+                return char.toUpperCase();
+            });
+        }
+        
         // Add click event to delete icon
         deleteIcon.addEventListener('click', async () => {
             const confirmDelete = confirm('Are you sure you want to delete this recipe?');
