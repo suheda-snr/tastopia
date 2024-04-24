@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
         //console.log(data)
         updateRecipeTitle(data.title)
-        updateUsername(data.userid)
+        updateUsername(data.author.Username)
         updateRecipeImage(data.picture)
         updateRecipeDescription(data.description)
         updateRecipePrepTime(data.preptime)
@@ -39,7 +39,7 @@ function updateRecipeTitle (title) {
 function updateUsername (username) {
     const userName = document.getElementById('userName');  //USername
     if(userName) {
-        userName.textContent = `userid: ${username}`
+        userName.textContent = username;
     }
     else {
         console.error("Element with ID 'userName' not found");
