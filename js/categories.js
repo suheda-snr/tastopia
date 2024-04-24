@@ -21,21 +21,21 @@ function filterRecipes() {
     const recipe = new Recipes();
     recipe.getRecipes()
         .then(recipes => {
+            recipes = recipes.filter(recipe => recipe.category.toLowerCase() === category.toLowerCase());
+            recipes.sort((a, b) => a.title.localeCompare(b.title)); // Sort recipes alphabetically by title
             const categoryResultsContainer = document.getElementById('category-results');
             categoryResultsContainer.innerHTML = ''; // Clear previous results
             const displayText = document.getElementById('displayCategoryText');
             let count = 0; // Initialize count for results
             recipes.forEach(recipe => {
-                if (recipe.category.toLowerCase() === category.toLowerCase()) {
-                    const card = categoryResultsCard(recipe);
-                    // Add event listener to redirect to new page with recipe ID
-                    card.addEventListener('click', () => {
-                         window.location.href = `recipePage.html?id=${recipe.id}`;
-                    });
-                    categoryResultsContainer.appendChild(card);
-                    count++;
-                }
-            })
+                const card = categoryResultsCard(recipe);
+                // Add event listener to redirect to new page with recipe ID
+                card.addEventListener('click', () => {
+                     window.location.href = `recipePage.html?id=${recipe.id}`;
+                });
+                categoryResultsContainer.appendChild(card);
+                count++;
+            });
             // Display message if no results found
             if (count === 0) {
                 displayText.innerHTML = `
