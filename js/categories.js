@@ -52,7 +52,3 @@ function filterRecipes() {
 
 // Call the function to filter recipes
 window.addEventListener('DOMContentLoaded', filterRecipes);
-
-/* when clicked on a recipe, redirect to recipePage.html with the recipe ID as a query parameter
-`/recipePage.html?id=${data.recipeid}`;
-*/
