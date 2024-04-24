@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
         updateRecipePrepTime(data.preptime)
         updateRecipeIngridients(data.ingredients)
         updateRecipeInstructions(data.instructions)
+        updateOtherRecipes(data.author.Username)
     })
     .catch(error => {
         console.error('Error fetching recipe:', error); // Console message: Error fetching recipe
@@ -132,4 +133,13 @@ function updateRecipeInstructions (instructions) {
     } else {
         console.error("Element with ID 'recipeInstructions' not found");
     }
+}
+function updateOtherRecipes(username) {
+    const header = document.getElementById('textofuser');
+    if (!header) {
+        console.error("Element with ID 'textofuser' not found");
+        return;
+    }
+    header.innerHTML = `<b>Other recipes by ${username}</b>`;
+    header.parentElement.querySelector('h4').innerHTML = header.innerHTML;
 }

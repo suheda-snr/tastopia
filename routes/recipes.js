@@ -79,4 +79,15 @@ router.delete('/api/recipe/:id', async (req, res) => {
     }
 });
 
+// Route to get recipes by user ID
+router.get('/api/user/:userId/recipes', async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const recipes = await Recipe.findAll({ where: { userid: userId } });
+        res.json(recipes);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
 module.exports = router;
