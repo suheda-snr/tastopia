@@ -1,5 +1,6 @@
 import { Recipes } from './class/Recipes.js';
 import { allRecipesCard } from "./renderedElements.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     // Ensure DOM content is loaded before accessing elements
     const slideshowContainer = document.getElementById('slideshow-container');
@@ -19,6 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const allRecipesContainer = document.getElementById('all-recipes');
             allRecipesContainer.innerHTML = ''; // Clear previous results
             let count = 0; // Initialize count for results
+
+            // Reverse the array of recipes
+            recipes.reverse();
+
             recipes.forEach(recipe => {
                 const card = allRecipesCard(recipe); // Assuming allRecipesCard is a function to create a recipe card
                 // Add event listener to redirect to new page with recipe ID
@@ -42,5 +47,4 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => {
             console.error('Error fetching recipes:', error);
         });
-
 });
