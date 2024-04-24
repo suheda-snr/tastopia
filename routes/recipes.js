@@ -79,7 +79,7 @@ router.delete('/api/recipe/:id', async (req, res) => {
     }
 });
 
-// Route to get recipes by user ID
+// Route to get recipes by user ID (for other recipes by the same user)
 router.get('/api/user/:userId/recipes', async (req, res) => {
     try {
         const { userId } = req.params;
