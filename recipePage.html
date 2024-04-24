@@ -203,12 +203,12 @@
             <!-- Content Column -->
             <div class="col-md-8 mt-5">
                 <div class="row">
-                    <h2 class="text-md-start text-center">Title</h2>
+                    <h2 class="text-md-start text-center" id="recipeTitle">Title</h2>
                 </div>
                 <div class="row mb-3 mb-10">
                     <!-- Username -->
                     <div class="col-md-4">
-                        <p class="text-md-start text-center" style="color: #EA9239;">Username</p>
+                        <p class="text-md-start text-center" id="userName" style="color: #EA9239;">Username</p>
                     </div>
                     <div class="col-md-8 text-md-end text-center">
                         <!-- Rating Component-->
@@ -229,7 +229,7 @@
                  <!-- Description Text -->
                  <div class="row">
                     <div class="col-md-12">
-                        <p class="text-md-start text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum voluptate, quod natus soluta tempora laudantium incidunt esse tenetur accusantium eius voluptatem consequatur nam adipisci animi earum dolorem impedit eligendi asperiores! Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ipsum nam eaque. Cumque ea laborum eius. Ut possimus sequi iusto, porro dolorum officia mollitia accusamus, nostrum inventore unde commodi saepe! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos fugiat voluptates ducimus ad odit fuga non reprehenderit quidem facilis unde, explicabo in! Ipsum dignissimos facere possimus suscipit, a eaque totam!</p>
+                        <p class="text-md-start text-center" id="recipeDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum voluptate, quod natus soluta tempora laudantium incidunt esse tenetur accusantium eius voluptatem consequatur nam adipisci animi earum dolorem impedit eligendi asperiores! Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ipsum nam eaque. Cumque ea laborum eius. Ut possimus sequi iusto, porro dolorum officia mollitia accusamus, nostrum inventore unde commodi saepe! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos fugiat voluptates ducimus ad odit fuga non reprehenderit quidem facilis unde, explicabo in! Ipsum dignissimos facere possimus suscipit, a eaque totam!</p>
                     </div>
                 </div>
             </div>
@@ -248,7 +248,7 @@
                     </p>                
                     <h5><b>Ingredients:</b></h5>
                     <!-- Add ingredients with DOM manipulation -->
-                    <ol id="ingredients">
+                    <ol id="recipeIngredients">
                         <li>Ingredient 1</li>
                         <li>Ingredient 2</li>
                         <li>Ingredient 3</li>
@@ -271,7 +271,7 @@
                 <div class="instruction-box">
                     <h5><b>Instruction:</b></h5>
                     <!-- Change the steps with DOM manipulation -->
-                    <ol style="padding-left: 20px;">
+                    <ol style="padding-left: 20px;", id="recipeInstructions">
                         <li style="margin-bottom: 5px;"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta magnam qui quae in nihil temporibus id illo fugit nostrum a laudantium nesciunt illum incidunt, molestiae sit corrupti aliquid distinctio! Molestiae!</li>
                         <li style="margin-bottom: 5px;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis iusto veritatis odit officia neque illum beatae enim corrupti consequuntur, aut quod impedit est id ex, provident aspernatur maxime velit ea. </li>
                     </ol>                    
@@ -329,6 +329,7 @@
   <script type="module" src="./js/switch.js" ></script>
   <script type="module" src="./js/searchResults.js" ></script>
   <script type="module" src="./js/categories.js" ></script>
+  <script type="module" src="./js/recipeShow.js" ></script>
   <script type="module" src="./js/commentSubmit.js"></script>
   <script type="module" src="./js/rating.js"></script>
   <script type="module" src="./js/AccessMyTastopia.js" ></script>
