@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const { isLoggedIn } = require('../middleware');
 const recipes = require('../controllers/recipes');
-const { Recipe } = require('../models/models');
+const { Recipe,User } = require('../models/models');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
@@ -28,7 +28,14 @@ router.get('/recipe/:id', (req, res) => {
 
 router.get('/api/recipe/:id', async (req, res) => {
     try {
-        const recipe = await Recipe.findByPk(req.params.id);
+        const { id } = req.params;
+        const recipe = await Recipe.findByPk(id, {
+            include: [{
+                model: User,
+                as: 'author',
+                attributes: ['Username'] 
+            }]
+        });
         if (recipe) {
             res.json(recipe);  // Send the recipe data as JSON
         } else {
@@ -67,6 +74,17 @@ router.delete('/api/recipe/:id', async (req, res) => {
         } else {
             res.status(404).json({ message: 'Recipe not found' });
         }
+    } catch (error) {
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// Route to get recipes by user ID (for other recipes by the same user)
+router.get('/api/user/:userId/recipes', async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const recipes = await Recipe.findAll({ where: { userid: userId } });
+        res.json(recipes);
     } catch (error) {
         res.status(500).json({ message: 'Server error' });
     }
