@@ -530,14 +530,13 @@ img {
 
 /* My Tastopia page */
 
-/* Styling for the Berries image */
-/* CSS for styling the chef image */
-.chef {
+/* Styling for the heading image */
+.testimage {
   text-align: center; 
 }
 
-.chef img {
-  width: 40%; 
+.testimage img {
+  width: 100%; 
   height: auto; 
   display: block; 
   margin: 0 auto;  
