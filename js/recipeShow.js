@@ -108,28 +108,32 @@ function updateRecipeIngridients (ingridients) {
 function updateRecipeInstructions (instructions) {
     const recipeInstructions = document.getElementById('recipeInstructions');  //Instructions
 
-    // Check if the <ol> element is found
     if (recipeInstructions) {
-        // Clear existing <li> items from the <ol> element
-        recipeInstructions.innerHTML = '';
+        recipeInstructions.innerHTML = ''; // Clear existing content
 
-        // Split the cooking instructions into individual steps based on the numbering pattern
-        const ingstructionsArray = instructions.split(/\d+\./).filter(step => step.trim() !== '');
-
-        // Iterate over the ingredients array and add each item as a <li> (list item) to the <ol> element
-        ingstructionsArray.forEach(instruction => {
-            // Create a new <li> element
-            const listItem = document.createElement("li");
-
-            // Set the text content of the <li> element to the ingredient item
-            listItem.textContent = instruction;
-
-            // Apply inline styles to the <li> element
-            listItem.style.marginBottom = "5px";
-
-            // Append the <li> element to the <ol> (ordered list) element
-            recipeInstructions.appendChild(listItem);
-        });
+        const stepsRegex = /(?<=\n|^)\s*\d+\.\s+/;
+        
+        // Check for the presence of numbered steps in a robust way
+        if (stepsRegex.test(instructions)) {
+            // Split the instructions into steps using a regex that accounts for numbers followed by a period and space
+            const stepsArray = instructions.split(stepsRegex).filter(step => step.trim() !== '');
+            stepsArray.forEach((step, index) => {
+                // Since the split removes the step numbers, we manually add them back for clarity
+                const paragraph = document.createElement("p");
+                paragraph.textContent = `${index + 1}. ${step.trim()}`;
+                paragraph.style.marginBottom = "10px";
+                recipeInstructions.appendChild(paragraph);
+            });
+        } else { // Handle plain text without numbers
+            const sentences = instructions.split(/(?<=\.)\s+/).filter(sentence => sentence.trim() !== '');
+            sentences.forEach((sentence, index) => {
+                const paragraph = document.createElement("p");
+                let number = index + 1;
+                paragraph.textContent = number + ". " +sentence.trim();
+                paragraph.style.marginBottom = "10px";
+                recipeInstructions.appendChild(paragraph);
+            });
+        }
     } else {
         console.error("Element with ID 'recipeInstructions' not found");
     }
