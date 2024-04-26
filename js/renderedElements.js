@@ -11,7 +11,7 @@ function searchResultsCard(recipe) {
     card.innerHTML = `
         <div class="row justify-content-center" id="cardRow1">
             <div class="card h-100">
-                <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px;">
+                <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px; width: 100%; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title no-underline" style="height: 50px;">${capitalizeInitials(recipe.title)}</h5>
                     <p class="card-text">by ${recipe.username}</p>
@@ -33,7 +33,7 @@ function categoryResultsCard(recipe) {
     card.innerHTML = `
         <div class="row justify-content-center" id="cardRow1">
             <div class="card h-100">
-                <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px;">
+                <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px; width: 100%; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title no-underline" style="height: 50px;">${capitalizeInitials(recipe.title)}</h5>
                     <p class="card-text">by ${recipe.username}</p>
@@ -55,7 +55,7 @@ function allRecipesCard(recipe) {
     card.innerHTML = `
         <div class="row justify-content-center" id="cardRow1">
             <div class="card h-100">
-                <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px;">
+                <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px; width: 100%; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title no-underline" style="height: 50px;">${capitalizeInitials(recipe.title)}</h5>
                     <p class="card-text">by ${recipe.username}</p>
@@ -79,7 +79,7 @@ function otherRecipesbyCards(recipe) {
     card.innerHTML = `
         <div class="row justify-content-center" id="cardRow1">
             <div class="card h-100">
-                <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px;">
+                <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px; width: 100%; object-fit: cover;;">
                 <div class="card-body">
                     <h5 class="card-title no-underline" style="height: 50px;">${capitalizeInitials(recipe.title)}</h5>
                 </div>
