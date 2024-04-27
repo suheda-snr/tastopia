@@ -105,12 +105,23 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
     }
 
-    // Function to fill the average rate stars based on the average rating
-    function fillAverageRateStars(averageRating) {
-        const filledStars = Math.round(averageRating); // Round the average rating to the nearest integer
-        resetRating(averageRateStars); // Reset all stars
-        highlightStars(averageRateStars, filledStars); // Highlight stars based on the average rating
+  // Function to fill the average rate stars based on the average rating
+function fillAverageRateStars(averageRating) {
+    const filledStars = Math.floor(averageRating); // Round down the average rating
+    const halfStar = averageRating - filledStars >= 0.5; // Check if there's a half star
+    resetRating(averageRateStars); // Reset all stars
+    
+    // Fill stars up to the rounded down average rating
+    highlightStars(averageRateStars, filledStars);
+
+    // If there's a half star, fill the next star with half
+    if (halfStar && filledStars < averageRateStars.length) {
+        averageRateStars[filledStars].classList.remove('far'); // Removing the empty star class
+        averageRateStars[filledStars].classList.add('fa'); // Adding the filled star class
+        averageRateStars[filledStars].classList.add('fa-star-half-o'); // Adding half-filled star class
     }
+}
+
 
     // Function to reset the rating stars
     function resetRating(stars) {
@@ -124,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function highlightStars(stars, rating) {
         for (let i = 0; i < rating; i++) {
             stars[i].classList.remove('far'); // Removing the empty star class
-            stars[i].classList.add('fas'); // Adding the filled star class
+            stars[i].classList.add('fa'); // Adding the filled star class
         }
     }
 
@@ -160,8 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
             submissionMessage.style.color = 'red'; // Set text color to red
         });
     }
-    
-    // Function to display rating counts for each rating
+
 // Function to display rating counts for each rating
 function displayRatingCounts(ratings) {
     const ratingCounts = [0, 0, 0, 0, 0]; // Initialize array to store counts for each rating

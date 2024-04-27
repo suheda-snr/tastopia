@@ -40,7 +40,7 @@ function updateRecipeTitle (title) {
 function updateUsername (username) {
     const userName = document.getElementById('userName');  //USername
     if(userName) {
-        userName.textContent = username;
+        userName.textContent = `by ${username}`
     }
     else {
         console.error("Element with ID 'userName' not found");
