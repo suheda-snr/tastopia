@@ -28,6 +28,15 @@
 
   <!-- Font Awesome CSS (if using icons for navigation) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    .media-custom {
+        margin: auto; /* Center horizontally */
+        /* Add any other styling as needed */
+    }
+    .section {
+    padding: 0 0;
+    }
+</style>
 </head>
 <body>
   
@@ -79,8 +88,6 @@
           </div>
         </div>
       </div>
-      
-      
     </div>
       
     
@@ -130,6 +137,7 @@
     </div>
   </div>
 
+
   <!-- Third Row content-->
   <div id="slideshow-container" class="slideshow-container"> <!-- Slideshow container-->
     <div class="mySlides fade">
@@ -168,72 +176,35 @@
     </div>
   </div>
 
-<!-- Owl carousel-->
-<section class="section bg-light">
-  <div class="container">
-    <div class="row">
-          <div class="major-carousel js-carousel owl-carousel">
-              
-              <div>
-                  <div class="media media-custom d-block text-left">
-                      <a href="#">
-                          <img src="./images/veggies.png" alt="Image" class="img-fluid">
-                      </a>
-                      <div class="media-body">
-                          <h3 class="text-black mt-0">
-                              <a href="#" class="text-black">
-                                  Veggies
-                              </a>
-                          </h3>
-                      </div>
-                  </div>
-              </div>
+ 
+  <!-- Fourth Row content-->
+  <div class="row" style="margin-bottom: 50px; margin-top: 150px; margin-left: 20px;">
+    <h4>The most beloved recipes</h4>
+  </div>
+  <!-- Owl Carousel for displaying top recipes with ratings -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="major-carousel owl-carousel" id="mostBelovedRecipes">
+          <!-- Carousel items will be added here -->
+        </div>
+      </div>
+    </div>
+  </section>
 
-              <div>
-                  <div class="media media-custom d-block text-left">
-                      <a href="#">
-                          <img src="./images/potato.jpg" alt="Image" class="img-fluid">
-                      </a>
-                      <div class="media-body">
-                          <h3 class="text-black mt-0">
-                              <a href="#" class="text-black">
-                                  Potato
-                              </a>
-                          </h3>
-                      </div>
-                  </div>
-              </div>
-  
-              <div>
-                  <div class="media media-custom d-block text-left">
-                      <a href="#">
-                          <img src="./images/logo.png" alt="Image" class="img-fluid">
-                      </a>
-                      <div class="media-body">
-                          <h3 class="text-black mt-0">
-                              <a href="#" class="text-black">
-                                  Logo
-                              </a>
-                          </h3>
-                      </div>
-                  </div>
-              </div>
-  
-              <div>
-                  <div class="media media-custom d-block text-left">
-                      <a href="#">
-                          <img src="./images/veggies.png" alt="Image" class="img-fluid">
-                      </a>
-                      <div class="media-body">
-                          <h3 class="text-black mt-0">
-                              <a href="#" class="text-black">
-                                  Veggies
-                              </a>
-                          </h3>
-                      </div>
-                  </div>
-              </div>
-          </div>
+
+  <!-- Fifth Row content-->
+  <!-- You might also like -->
+  <div class="row" style="margin-bottom: 50px; margin-top: 100px; margin-left: 20px;">
+    <h4>You might also like</h4>
+  </div>
+  <!-- Owl Carousel for displaying top recipes with ratings -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="major-carousel owl-carousel" id="youMightAlsoLike">
+          <!-- Carousel items will be added here -->
+        </div>
       </div>
     </div>
   </section>

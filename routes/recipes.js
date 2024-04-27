@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const { isLoggedIn } = require('../middleware');
 const recipes = require('../controllers/recipes');
-const { Recipe,User } = require('../models/models');
+const { Recipe,User, Rating } = require('../models/models');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
@@ -90,4 +90,35 @@ router.get('/api/user/:userId/recipes', async (req, res) => {
     }
 });
 
+// Route to fetch all recipes and their ratings
+router.get('/api/recipes-with-ratings', async (req, res) => {
+    try {
+        // Fetch all recipes
+        const recipes = await Recipe.findAll();
+
+        //Fetch recipe user
+        const recipeUser = await User.findAll();
+
+        // Fetch all ratings
+        const ratings = await Rating.findAll();
+
+        // Combine recipes with their ratings
+        const recipesWithRatings = recipes.map(recipe => {
+            const recipeRatings = ratings.filter(rating => rating.recipeid === recipe.recipeid);
+            return {
+                recipeId: recipe.recipeid,
+                title: recipe.title,
+                image: recipe.picture,
+                id: recipe.recipeid,
+                username: recipeUser.find(user => user.UserID === recipe.userid).Username,
+                ratings: recipeRatings.map(rating => rating.rating)
+            };
+        });
+
+        res.json(recipesWithRatings);
+    } catch (error) {
+        console.error('Error fetching recipes with ratings:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
 module.exports = router;
