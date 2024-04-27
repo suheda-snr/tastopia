@@ -9,16 +9,16 @@ function searchResultsCard(recipe) {
     const card = document.createElement('div');
     card.classList.add('col');
     card.innerHTML = `
-        <div class="row justify-content-center" id="cardRow1">
-            <div class="card h-100">
-                <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px; width: 100%; object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title no-underline" style="height: 50px;">${capitalizeInitials(recipe.title)}</h5>
-                    <p class="card-text">by ${recipe.username}</p>
-                </div>
-            </div>
+    <div class="row justify-content-center" id="cardRow1">
+    <div class="card h-100">
+        <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px; width: 100%; object-fit: cover;">
+        <div class="card-body">
+            <h5 class="card-title no-underline" style="font-size: 24px;">${capitalizeInitials(recipe.title)}</h5>
+            <p class="card-text" style="font-size: small;">by ${recipe.username}</p>
         </div>
-    `;
+    </div>
+</div>
+`;
     return card;
 }
 
@@ -31,16 +31,16 @@ function categoryResultsCard(recipe) {
     const card = document.createElement('div');
     card.classList.add('col');
     card.innerHTML = `
-        <div class="row justify-content-center" id="cardRow1">
-            <div class="card h-100">
-                <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px; width: 100%; object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title no-underline" style="height: 50px;">${capitalizeInitials(recipe.title)}</h5>
-                    <p class="card-text">by ${recipe.username}</p>
-                </div>
-            </div>
+    <div class="row justify-content-center" id="cardRow1">
+    <div class="card h-100">
+        <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px; width: 100%; object-fit: cover;">
+        <div class="card-body">
+            <h5 class="card-title no-underline" style="font-size: 24px;">${capitalizeInitials(recipe.title)}</h5>
+            <p class="card-text" style="font-size: small;">by ${recipe.username}</p>
         </div>
-    `;
+    </div>
+</div>
+`;
     return card;
 }
 
@@ -53,16 +53,16 @@ function allRecipesCard(recipe) {
     const card = document.createElement('div');
     card.classList.add('col');
     card.innerHTML = `
-        <div class="row justify-content-center" id="cardRow1">
-            <div class="card h-100">
-                <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px; width: 100%; object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title no-underline" style="height: 50px;">${capitalizeInitials(recipe.title)}</h5>
-                    <p class="card-text">by ${recipe.username}</p>
-                </div>
-            </div>
+    <div class="row justify-content-center" id="cardRow1">
+    <div class="card h-100">
+        <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px; width: 100%; object-fit: cover;">
+        <div class="card-body">
+            <h5 class="card-title no-underline" style="font-size: 24px;">${capitalizeInitials(recipe.title)}</h5>
+            <p class="card-text" style="font-size: small;">by ${recipe.username}</p>
         </div>
-    `;
+    </div>
+</div>
+`;
     return card;
 }
 
@@ -81,7 +81,7 @@ function otherRecipesbyCards(recipe) {
             <div class="card h-100">
                 <img src="${recipe.picture}" class="card-img-top" alt="${recipe.title}" style="height: 200px; width: 100%; object-fit: cover;;">
                 <div class="card-body">
-                    <h5 class="card-title no-underline" style="height: 50px;">${capitalizeInitials(recipe.title)}</h5>
+                    <h5 class="card-title no-underline">${capitalizeInitials(recipe.title)}</h5>
                 </div>
             </div>
         </div>
