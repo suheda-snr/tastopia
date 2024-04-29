@@ -1,3 +1,4 @@
+// Slide show for the home page
 var slideIndex = 0;
 showSlides();
 
@@ -12,6 +13,8 @@ function showSlides() {
   slides[slideIndex-1].style.display = "block";  
   setTimeout(showSlides, 3000); // Change image every 3 seconds
 }
+
+// Most beloved and you might also like recipes carousel
 
 // Function to calculate average rating
 function calculateAverage(ratings) {
@@ -48,7 +51,7 @@ function generateStars(averageRating) {
 }
 
 
-  // Owl Carousel for most beloved recipes
+// Owl Carousel for most beloved recipes
 // Fetch all recipes with their ratings from the server
 fetch('/api/recipes-with-ratings')
 .then(response => response.json()) // Parse response as JSON
@@ -67,7 +70,6 @@ fetch('/api/recipes-with-ratings')
         return calculateAverage(recipe.ratings) >= 4;
     });
 
-    // Iterate over each top recipe with ratings and add it to the carousel
 // Iterate over each top recipe with ratings and add it to the carousel
 topRecipesFiltered.forEach(recipe => {
   if (recipe.ratings.length > 0) { // Only add recipes with ratings
@@ -110,7 +112,6 @@ topRecipesFiltered.forEach(recipe => {
   }
 });
 
-
     // Initialize Owl Carousel after adding items
     $('#mostBelovedRecipes').owlCarousel({
         loop: true,
@@ -145,8 +146,7 @@ topRecipesFiltered.forEach(recipe => {
 });
 
 
-
-  // Owl Carousel for you might also like
+// Owl Carousel for you might also like
 // Make a GET request to fetch 6 random recipes with their ratings
 fetch('/api/recipes-with-ratings')
   .then(response => response.json()) // Parse response as JSON

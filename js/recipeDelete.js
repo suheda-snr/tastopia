@@ -4,7 +4,6 @@ async function fetchRecipes() {
         const response = await fetch('/api/user/recipes', {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer YOUR_JWT_TOKEN', // Replace with your JWT token
                 'Content-Type': 'application/json'
             }
         });
@@ -48,15 +47,10 @@ async function displayRecipes(recipes) {
         iconContainer.appendChild(viewIcon);
         iconContainer.appendChild(deleteIcon);
         
-
-
-        
         // Append elements to list item
         listItem.appendChild(recipeTitle);
         listItem.appendChild(iconContainer);
-
-        
-        
+  
         // Append list item to recipe list
         recipeList.appendChild(listItem);
         
