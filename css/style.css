@@ -702,3 +702,55 @@ textarea {
 .container-fluid {
   margin-top: 15px;
 }
+
+/* Styling for the footer Content*/
+footer {
+  background: linear-gradient(to bottom, #ea9743, #e5c3a0);
+  padding: 2px;
+  margin-top: 50px;
+  width: 100%;
+}
+.contact-info {
+  color: white;
+  margin-left: 90px;
+  align-items: left;
+}
+
+.contact-info h2 {
+  font-size: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: left; /* Align h2 to the left */
+}
+
+.contact-content {
+  font-size: 20px;
+  color: white;
+  align-items: left;
+  line-height: 40px;
+}
+
+
+.social-media {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-media img {
+  width: 40px;
+  margin: 0 10px;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+}
+
+.copyright {
+  text-align: center;
+  color: #ffffff;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  line-height: 10px;
+}
