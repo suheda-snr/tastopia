@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => {
             console.error("Error during login:", error);
-            alert("Login error, please try again later.");
+            alert( "Your email or password is not correct, please try again.");
         });
     });
 });

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (data.isLoggedIn) {
                         window.location.href = link.href; // Navigate to the link if logged in
                     } else {
-                        alert("Please login to share your recipes");
+                        alert("Please login first.");
                     }
                 })
                 .catch(() => {
