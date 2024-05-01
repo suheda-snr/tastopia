@@ -707,8 +707,10 @@ textarea {
 footer {
   background: linear-gradient(to bottom, #ea9743, #e5c3a0);
   padding: 2px;
-  margin-top: 50px;
+  margin-top: 30px;
   width: 100%;
+  /* decrease the height of the footer */
+  height: 100%; 
 }
 .contact-info {
   color: white;
@@ -717,17 +719,19 @@ footer {
 }
 
 .contact-info h2 {
-  font-size: 20px;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  text-align: left; /* Align h2 to the left */
+  font-size: 16px;
+  color: white;
+  margin-top: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left; 
 }
 
 .contact-content {
-  font-size: 20px;
+  font-size: 16px;
   color: white;
   align-items: left;
-  line-height: 40px;
+  line-height: 30px;
 }
 
 
@@ -749,8 +753,8 @@ footer {
 .copyright {
   text-align: center;
   color: #ffffff;
-  font-size: 20px;
-  margin-top: 20px;
+  font-size: 16px;
+  margin-top: 10px;
   margin-bottom: 10px;
   line-height: 10px;
 }
