@@ -39,6 +39,10 @@
     .section {
     padding: 0 0;
     }
+    .image-text{
+      font-size: 2em;
+    
+    }
 </style>
 </head>
 <body>
@@ -140,36 +144,56 @@
     </div>
   </div>
 
-
-  <!-- Third Row content-->
-  <div class="row" style="margin-bottom: 40px; margin-top: 40px; margin-left: 20px;">
-    <h4 id="pickForToday">Pick for today!</h4>
-  </div>
+<!-- Third Row content-->
+<div class="row" style="margin-top: 50px; margin-bottom: 60px">
   <div id="slideshow-container" class="slideshow-container"> <!-- Slideshow container-->
     <div class="mySlides fade">
-      <img src="./images/Slideshow/1.jpg" alt="macaron">
+      <div class="bg-image" style="max-width: 100%;">
+        <img src="./images/Slideshow/1.jpg" alt="macaron" class="w-100">
+        <div class="mask text-light d-flex justify-content-center flex-column text-center" style="background-color: rgba(0, 0, 0, 0.5)">
+          <div class="image-text" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white;">
+            Indulge in a flavourful journey towards wellness with Tastopia.
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mySlides fade">
+      <div class="bg-image" style="max-width: 100%;">
+        <img src="./images/Slideshow/3.jpg" alt="pumpkinsoup" class="w-100">
+        <div class="mask text-light d-flex justify-content-center flex-column text-center" style="background-color: rgba(0, 0, 0, 0.5)">
+          <div class="image-text" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white;">
+            Indulge in a flavourful journey towards wellness with Tastopia.
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="mySlides fade">
-      <img src="./images/Slideshow/2.jpg" alt="chicken">
+      <div class="bg-image" style="max-width: 100%;">
+        <img src="./images/Slideshow/4.jpg" alt="icecoffee" class="w-100">
+        <div class="mask text-light d-flex justify-content-center flex-column text-center" style="background-color: rgba(0, 0, 0, 0.5)">
+          <div class="image-text" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white;">
+            Indulge in a flavourful journey towards wellness with Tastopia.
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="mySlides fade">
-      <img src="./images/Slideshow/3.jpg" alt="pumpkinsoup">
-    </div>
-
-    <div class="mySlides fade">
-      <img src="./images/Slideshow/4.jpg" alt="icecoffee">
-    </div>
-
-    <div class="mySlides fade">
-      <img src="./images/Slideshow/5.jpg" alt="croissant">
+      <div class="bg-image" style="max-width: 100%;">
+        <img src="./images/Slideshow/5.jpg" alt="croissant" class="w-100">
+        <div class="mask text-light d-flex justify-content-center flex-column text-center" style="background-color: rgba(0, 0, 0, 0.5)">
+          <div class="image-text" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white;">
+            Indulge in a flavourful journey towards wellness with Tastopia.
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="slogan"> <!-- Slogan -->
-    <marquee>“Indulge in a flavourful towards wellness with Tastopia.”</marquee>
-  </div>
+</div>
+
 
  
   <!-- Fourth Row content-->
@@ -240,6 +264,5 @@
   <script type="module" src="./js/switch.js" ></script>
   <script type="module" src="./js/AccessMyTastopia.js" ></script>
   <script type="module" src="./js/allRecipes.js" ></script>
-  <script type="module" src="./js/pickForToday.js" ></script>
 </body>
 </html>

@@ -249,7 +249,7 @@
 }
 
 .mySlides img {
-  max-width: 100%;
+  width: 100%;
   height: auto; /* This ensures that the image maintains its aspect ratio */
 }
 
