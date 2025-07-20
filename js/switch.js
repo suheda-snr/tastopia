@@ -1,7 +1,7 @@
 // Purpose: To switch between login and logout button and enable/disable comment input based on user login status
 document.addEventListener('DOMContentLoaded', function() {
 // Make an AJAX request to the server to check if the user is logged in
-fetch('http://localhost:3001/api/check-login', {
+fetch(`${BACKEND_URL}/api/check-login`, {
 	credentials: 'include' // If you're dealing with credentials in cross-origin requests
   })
  .then(response => response.json())
