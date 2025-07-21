@@ -70,6 +70,7 @@ const sessionConfig = {
       conString: `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, // Replace with your PostgreSQL connection string
       tableName: 'session',
       ssl: {
+        require: true,
         rejectUnauthorized: false // Set this to false for SSL/TLS connection
       }
     }),
