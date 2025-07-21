@@ -8,7 +8,10 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
   dialect: 'postgres',
   logging: console.log, // Enable logging of SQL queries
   dialectOptions: {
-    // Omitted SSL configuration since it's not needed for a local database
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
   }
 });
 
@@ -22,4 +25,4 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
   }
 })();
 
-module.exports = { sequelize,DataTypes};
+module.exports = { sequelize, DataTypes };
