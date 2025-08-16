@@ -1,1 +1,1 @@
-export const BACKEND_URL = 'https://tastopia.azurewebsites.net'
+export const BACKEND_URL = 'http://localhost:3001'
