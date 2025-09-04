@@ -65,6 +65,7 @@ Registered users can submit their own recipes with fields for:
 - 🔑 **User Authentication:** JWT-based register/login for secure access.
 - 📱 **Responsive Design:** Seamless browsing on any device.
 
+---
 
 ## 🛠️ Installation & Setup
 
