@@ -1,6 +1,11 @@
 # 🍴 Tastopia – Recipe Sharing Platform
 
-Tastopia is a vibrant recipe-sharing web application where food enthusiasts can explore, share, and interact with recipes. It connects food lovers by enabling them to post their own recipes, rate and review others, and discover new culinary favorites.
+Tastopia is a vibrant recipe-sharing web application where food enthusiasts can explore, share, and interact with recipes. Developed as my first web development school project over 6 weeks in a team of 4, Tastopia connects food lovers by enabling them to post their own recipes, rate and review others, and discover new culinary favorites. The project earned a grade of 5/5 and was praised for being ahead of most peers due to its robust features and polished UI.
+
+---
+
+## 📜 About
+Tastopia was built as a collaborative school project to apply web development skills in a real-world scenario. The 4-person team followed Scrum methodology, dividing tasks across frontend, backend, and database development. My contributions included designing the database schema, building backend APIs, and creating key frontend pages.
 
 ---
 
