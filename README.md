@@ -60,10 +60,11 @@ Registered users can submit their own recipes with fields for:
 
 - 🔍 **Search & Browse:** Explore recipes by category or search by title and ingredients.
 - ✨ **Interactive Features:** Share, rate, and review recipes (registered users only).
-- 🏠 **Personalized Suggestions:** Tailored recommendations on the homepage.
+- 🏠 **Personalized Suggestions:** Tailored recipe recommendations on the homepage.
+- 🛠️ **Manage Recipes:** Registered users can view and delete their own recipes.
+- 🔑 **User Authentication:** JWT-based register/login for secure access.
 - 📱 **Responsive Design:** Seamless browsing on any device.
 
----
 
 ## 🛠️ Installation & Setup
 
