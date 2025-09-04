@@ -102,3 +102,14 @@ node server/index.js
 Open your browser and navigate to [http://localhost:3001](http://localhost:3001) to start using Tastopia.
 
 ---
+
+## 🗄️ Database Schema
+
+The database is built with **PostgreSQL** and managed through **Sequelize ORM**.  
+Below is the schema that illustrates the relationships between **Users**, **Recipes**, and **Reviews**.
+
+<div align="center">
+  <img src="./images/README/db_schema.png" alt="Database Schema" width="75%">
+</div>
+
+---
